@@ -36,7 +36,7 @@ public class CelleSizeTest {
             assertThat(dataGrid().column(1), has(5, cells()));
             fail();
         } catch (AssertionError e) {
-            assertThat(format(e.getMessage()), is("Expected: cell size:5 got: <class org.testatoo.core.component.datagrid.Column with 2 cell(s) and title:Column 1>"));
+            assertThat(format(e.getMessage()), is("Expected: cell size:5 but: was <class org.testatoo.core.component.datagrid.Column with 2 cell(s) and title:Column 1>"));
         }
     }
 

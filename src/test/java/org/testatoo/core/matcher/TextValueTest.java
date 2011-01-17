@@ -36,7 +36,7 @@ public class TextValueTest {
             assertThat(button(), has(text("otherText")));
             fail();
         } catch (AssertionError e) {
-            assertThat(format(e.getMessage()), is("Expected: has text:otherText got: <class org.testatoo.core.component.Button with state : enabled:true, visible:true, text:buttonText, icon:>"));
+            assertThat(format(e.getMessage()), is("Expected: has text:otherText but: was <class org.testatoo.core.component.Button with state : enabled:true, visible:true, text:buttonText, icon:>"));
         }
     }
 

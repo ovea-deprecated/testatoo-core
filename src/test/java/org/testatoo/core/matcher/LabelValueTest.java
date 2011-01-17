@@ -44,7 +44,7 @@ public class LabelValueTest {
             assertThat(checkBoxWithLabel("myLabel"), has(label("otherLabel")));
             fail();
         } catch (AssertionError e) {
-            assertThat(format(e.getMessage()), is("Expected: has label:otherLabel got: <class org.testatoo.core.component.CheckBox with state : enabled:true, visible:true, label:myLabel, checked:true>"));
+            assertThat(format(e.getMessage()), is("Expected: has label:otherLabel but: was <class org.testatoo.core.component.CheckBox with state : enabled:true, visible:true, label:myLabel, checked:true>"));
         }
     }
 

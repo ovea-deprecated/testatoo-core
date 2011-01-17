@@ -37,7 +37,7 @@ public class ContainsTextTest {
             assertThat(simpleTextFieldWithText("MyText"), containsText("NoData"));
             fail();
         } catch (AssertionError e) {
-            assertThat(format(e.getMessage()), is("Expected: contains text:NoData got: <class org.testatoo.core.component.TextField with state : enabled:true, visible:true, value:MyText, label:label, maxLength:50>"));
+            assertThat(format(e.getMessage()), is("Expected: contains text:NoData but: was <class org.testatoo.core.component.TextField with state : enabled:true, visible:true, value:MyText, label:label, maxLength:50>"));
         }
     }
 

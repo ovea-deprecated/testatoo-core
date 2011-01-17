@@ -36,7 +36,7 @@ public class MaxLengthTest {
             assertThat(textFieldWithMaxLength(25), has(maxLength(10)));
             fail();
         } catch (AssertionError e) {
-            assertThat(format(e.getMessage()), is("Expected: has maxLength:10 got: <class org.testatoo.core.component.TextField with state : enabled:true, visible:true, value:textFieldValue, label:label, maxLength:25>"));
+            assertThat(format(e.getMessage()), is("Expected: has maxLength:10 but: was <class org.testatoo.core.component.TextField with state : enabled:true, visible:true, value:textFieldValue, label:label, maxLength:25>"));
         }
     }
 

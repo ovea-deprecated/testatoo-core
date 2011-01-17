@@ -36,7 +36,7 @@ public class TitleValueTest {
             assertThat(panel(), has(title("myTitle")));
             fail();
         } catch (AssertionError e) {
-            assertThat(format(e.getMessage()), is("Expected: has title:myTitle got: <class org.testatoo.core.component.Panel with state : enabled:true, visible:true, title:myPanelTitle>"));
+            assertThat(format(e.getMessage()), is("Expected: has title:myTitle but: was <class org.testatoo.core.component.Panel with state : enabled:true, visible:true, title:myPanelTitle>"));
         }
     }
 

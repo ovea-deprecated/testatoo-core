@@ -38,7 +38,7 @@ public class ContainsValuesTest {
             assertThat(comboBox(), containsValues("France", "Cambodgia"));
             fail();
         } catch (AssertionError e) {
-            assertThat(format(e.getMessage()), is("Expected: contains value(s):[France, Cambodgia] got: <class org.testatoo.core.component.ComboBox with state : enabled:true, visible:true, values:[France, Canada, Germany, Italy, Spain], selectedValues:[Canada], label:label>"));
+            assertThat(format(e.getMessage()), is("Expected: contains value(s):[France, Cambodgia] but: was <class org.testatoo.core.component.ComboBox with state : enabled:true, visible:true, values:[France, Canada, Germany, Italy, Spain], selectedValues:[Canada], label:label>"));
         }
     }
 
@@ -51,7 +51,7 @@ public class ContainsValuesTest {
             assertThat(comboBox(), containsExactlyValues("Italy", "Spain", "Canada"));
             fail();
         } catch (AssertionError e) {
-            assertThat(format(e.getMessage()), is("Expected: contains exactly value(s):[Italy, Spain, Canada] got: <class org.testatoo.core.component.ComboBox with state : enabled:true, visible:true, values:[France, Canada, Germany, Italy, Spain], selectedValues:[Canada], label:label>"));
+            assertThat(format(e.getMessage()), is("Expected: contains exactly value(s):[Italy, Spain, Canada] but: was <class org.testatoo.core.component.ComboBox with state : enabled:true, visible:true, values:[France, Canada, Germany, Italy, Spain], selectedValues:[Canada], label:label>"));
         }
     }
 }

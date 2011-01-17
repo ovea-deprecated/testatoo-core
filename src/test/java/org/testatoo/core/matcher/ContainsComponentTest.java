@@ -112,13 +112,13 @@ public class ContainsComponentTest {
         try {
             assertThat(button, contains(panel));
         } catch (AssertionError e) {
-            assertThat(format(e.getMessage()), is("Expected: a container got: <class org.testatoo.core.component.Button with state : enabled:true, visible:true, text:buttonText, icon:>"));
+            assertThat(format(e.getMessage()), is("Expected: a container but: was <class org.testatoo.core.component.Button with state : enabled:true, visible:true, text:buttonText, icon:>"));
         }
 
         try {
             assertThat(panel, contains(button));
         } catch (AssertionError e) {
-            assertThat(format(e.getMessage()), is("Expected: contain one of {<class org.testatoo.core.component.Button with state : enabled:true, visible:true, text:buttonText, icon:>} got: <class org.testatoo.core.component.Panel with state : enabled:true, visible:true, title:myPanelTitle>"));
+            assertThat(format(e.getMessage()), is("Expected: contain one of {<class org.testatoo.core.component.Button with state : enabled:true, visible:true, text:buttonText, icon:>} but: was <class org.testatoo.core.component.Panel with state : enabled:true, visible:true, title:myPanelTitle>"));
         }
 
     }

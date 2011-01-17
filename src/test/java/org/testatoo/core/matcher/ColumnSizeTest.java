@@ -36,7 +36,7 @@ public class ColumnSizeTest {
             assertThat(dataGrid(), has(5, columns()));
             fail();
         } catch (AssertionError e) {
-            assertThat(format(e.getMessage()), is("Expected: column size:5 got: <class org.testatoo.core.component.datagrid.DataGrid with state : enabled:true, visible:true, column(s):3, row(s):1>"));
+            assertThat(format(e.getMessage()), is("Expected: column size:5 but: was <class org.testatoo.core.component.datagrid.DataGrid with state : enabled:true, visible:true, column(s):3, row(s):1>"));
         }
     }
 

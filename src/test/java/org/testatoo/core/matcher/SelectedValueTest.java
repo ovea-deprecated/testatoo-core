@@ -38,7 +38,7 @@ public class SelectedValueTest {
             assertThat(comboBox(), has(selectedValue("Spain")));
             fail();
         } catch (AssertionError e) {
-            assertThat(format(e.getMessage()), is("Expected: has selected value:Spain got: <class org.testatoo.core.component.ComboBox with state : enabled:true, visible:true, values:[France, Canada, Germany, Italy, Spain], selectedValues:[Canada], label:label>"));
+            assertThat(format(e.getMessage()), is("Expected: has selected value:Spain but: was <class org.testatoo.core.component.ComboBox with state : enabled:true, visible:true, values:[France, Canada, Germany, Italy, Spain], selectedValues:[Canada], label:label>"));
         }
     }
 

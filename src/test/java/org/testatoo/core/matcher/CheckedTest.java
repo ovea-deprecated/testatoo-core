@@ -36,14 +36,14 @@ public class CheckedTest {
             assertThat(checkedCheckBox(), is(not(checked())));
             fail();
         } catch (AssertionError e) {
-            assertThat(format(e.getMessage()), is("Expected: is not checked:true got: <class org.testatoo.core.component.CheckBox with state : enabled:true, visible:true, label:label, checked:true>"));
+            assertThat(format(e.getMessage()), is("Expected: is not checked:true but: was <class org.testatoo.core.component.CheckBox with state : enabled:true, visible:true, label:label, checked:true>"));
         }
 
         try {
             assertThat(unCheckedCheckBox(), is(checked()));
             fail();
         } catch (AssertionError e) {
-            assertThat(format(e.getMessage()), is("Expected: is checked:true got: <class org.testatoo.core.component.CheckBox with state : enabled:true, visible:true, label:label, checked:false>"));
+            assertThat(format(e.getMessage()), is("Expected: is checked:true but: was <class org.testatoo.core.component.CheckBox with state : enabled:true, visible:true, label:label, checked:false>"));
         }
 
         assertThat(checkedRadio(), is(checked()));
@@ -53,14 +53,14 @@ public class CheckedTest {
             assertThat(checkedRadio(), is(not(checked())));
             fail();
         } catch (AssertionError e) {
-            assertThat(format(e.getMessage()), is("Expected: is not checked:true got: <class org.testatoo.core.component.Radio with state : enabled:true, visible:true, label:label, checked:true>"));
+            assertThat(format(e.getMessage()), is("Expected: is not checked:true but: was <class org.testatoo.core.component.Radio with state : enabled:true, visible:true, label:label, checked:true>"));
         }
 
         try {
             assertThat(unCheckedRadio(), is(checked()));
             fail();
         } catch (AssertionError e) {
-            assertThat(format(e.getMessage()), is("Expected: is checked:true got: <class org.testatoo.core.component.Radio with state : enabled:true, visible:true, label:label, checked:false>"));
+            assertThat(format(e.getMessage()), is("Expected: is checked:true but: was <class org.testatoo.core.component.Radio with state : enabled:true, visible:true, label:label, checked:false>"));
         }
     }
 }

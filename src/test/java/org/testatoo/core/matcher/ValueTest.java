@@ -42,7 +42,7 @@ public class ValueTest {
             assertThat(field("myValue"), has(value("otherValue")));
             fail();
         } catch (AssertionError e) {
-            assertThat(format(e.getMessage()), is("Expected: has value:otherValue got: <class org.testatoo.core.component.FieldImpl with state : enabled:true, visible:true, value:myValue, label:label>"));
+            assertThat(format(e.getMessage()), is("Expected: has value:otherValue but: was <class org.testatoo.core.component.FieldImpl with state : enabled:true, visible:true, value:myValue, label:label>"));
         }
     }
 

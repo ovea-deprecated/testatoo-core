@@ -36,7 +36,7 @@ public class RowSizeTest {
             assertThat(dataGrid(), has(5, rows()));
             fail();
         } catch (AssertionError e) {
-            assertThat(format(e.getMessage()), is("Expected: row size:5 got: <class org.testatoo.core.component.datagrid.DataGrid with state : enabled:true, visible:true, column(s):3, row(s):1>"));
+            assertThat(format(e.getMessage()), is("Expected: row size:5 but: was <class org.testatoo.core.component.datagrid.DataGrid with state : enabled:true, visible:true, column(s):3, row(s):1>"));
         }
     }
 

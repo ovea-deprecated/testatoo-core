@@ -38,7 +38,7 @@ public class VisibleTest {
             assertThat(invisibleComponent(), is(visible()));
             fail();
         } catch (AssertionError e) {
-            assertThat(format(e.getMessage()), is("Expected: is visible:true got: <class org.testatoo.core.component.Component with state : enabled:true, visible:false>"));
+            assertThat(format(e.getMessage()), is("Expected: is visible:true but: was <class org.testatoo.core.component.Component with state : enabled:true, visible:false>"));
         }
     }
 

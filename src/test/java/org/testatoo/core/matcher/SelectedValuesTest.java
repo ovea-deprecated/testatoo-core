@@ -41,7 +41,7 @@ public class SelectedValuesTest {
             assertThat(listBox(), has(selectedValues("Spain", "Germany")));
             fail();
         } catch (AssertionError e) {
-            assertThat(format(e.getMessage()), is("Expected: has selected values:[Spain, Germany] got: <class org.testatoo.core.component.ListBox with state : enabled:true, visible:true, values:[France, Canada, Germany, Italy, Spain], selectedValues:[Canada, Spain], label:label>"));
+            assertThat(format(e.getMessage()), is("Expected: has selected values:[Spain, Germany] but: was <class org.testatoo.core.component.ListBox with state : enabled:true, visible:true, values:[France, Canada, Germany, Italy, Spain], selectedValues:[Canada, Spain], label:label>"));
         }
     }
 

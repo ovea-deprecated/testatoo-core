@@ -42,14 +42,14 @@ public class EnabledDisableTest {
             assertThat(disabledComponent(), is(enabled()));
             fail();
         } catch (AssertionError e) {
-            assertThat(format(e.getMessage()), is("Expected: is enabled:true got: <class org.testatoo.core.component.Component with state : enabled:false, visible:true>"));
+            assertThat(format(e.getMessage()), is("Expected: is enabled:true but: was <class org.testatoo.core.component.Component with state : enabled:false, visible:true>"));
         }
 
         try {
             assertThat(enabledComponent(), is(disabled()));
             fail();
         } catch (AssertionError e) {
-            assertThat(format(e.getMessage()), is("Expected: is enabled:false got: <class org.testatoo.core.component.Component with state : enabled:true, visible:true>"));
+            assertThat(format(e.getMessage()), is("Expected: is enabled:false but: was <class org.testatoo.core.component.Component with state : enabled:true, visible:true>"));
         }
     }
 }

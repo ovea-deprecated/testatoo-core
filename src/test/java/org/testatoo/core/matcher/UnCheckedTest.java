@@ -36,7 +36,7 @@ public class UnCheckedTest {
             assertThat(unCheckedCheckBox(), is(not(unChecked())));
             fail();
         } catch (AssertionError e) {
-            assertThat(format(e.getMessage()), is("Expected: is not checked:false got: <class org.testatoo.core.component.CheckBox with state : enabled:true, visible:true, label:label, checked:false>"));
+            assertThat(format(e.getMessage()), is("Expected: is not checked:false but: was <class org.testatoo.core.component.CheckBox with state : enabled:true, visible:true, label:label, checked:false>"));
         }
     }
 
