@@ -1,0 +1,135 @@
+/**
+ * Copyright (C) 2008 Ovea <dev@testatoo.org>
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package org.testatoo.core.input;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.testatoo.core.AbstractEvaluator;
+import org.testatoo.core.Evaluator;
+import org.testatoo.core.EvaluatorHolder;
+
+import java.util.Collections;
+import java.util.List;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.hasItems;
+import static org.hamcrest.Matchers.is;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+public class KeyboardTest {
+
+    private Evaluator evaluator;
+
+    @Before
+    public void setUp() {
+        evaluator = mock(Evaluator.class);
+        when(evaluator.name()).thenReturn(Evaluator.DEFAULT_NAME);
+        // Needed for Keyboard ;)
+        EvaluatorHolder.register(evaluator);
+    }
+
+    @After
+    public void clean() {
+        EvaluatorHolder.unregister(Evaluator.DEFAULT_NAME);
+    }
+
+    @Test
+    public void can_type_text() {
+        Keyboard.type("Some text");
+        verify(evaluator, times(1)).type("Some text");
+    }
+
+    // Key press is for key
+    @Test
+    public void can_pressKey() {
+        Keyboard.press(Key.ENTER);
+        verify(evaluator, times(1)).press(Key.ENTER);
+    }
+
+    // Key down and release is for keyModifier
+    @Test
+    public void can_keyDown() {
+        Keyboard.keyDown(KeyModifier.CONTROL);
+        verify(evaluator, times(1)).keyDown(KeyModifier.CONTROL);
+    }
+
+    @Test
+    public void can_release() {
+        Keyboard.keyDown(KeyModifier.CONTROL);
+        Keyboard.release(KeyModifier.CONTROL);
+
+        verify(evaluator, times(1)).keyDown(KeyModifier.CONTROL);
+        verify(evaluator, times(1)).release(KeyModifier.CONTROL);
+    }
+
+    @Test
+    public void can_release_a_pressed_keyModifier() {
+        DummyEvaluator dummyEvaluator = new DummyEvaluator();
+        EvaluatorHolder.register(dummyEvaluator);
+
+        assertThat(dummyEvaluator.getPressedKeyModifier().size(), is(0));
+
+        Keyboard.keyDown(KeyModifier.CONTROL);
+        Keyboard.keyDown(KeyModifier.ALT);
+
+        assertThat(dummyEvaluator.getPressedKeyModifier().size(), is(2));
+        assertThat(dummyEvaluator.getPressedKeyModifier(), hasItems(KeyModifier.CONTROL, KeyModifier.ALT));
+
+        Keyboard.release(KeyModifier.ALT);
+
+        assertThat(dummyEvaluator.getPressedKeyModifier().size(), is(1));
+        assertThat(dummyEvaluator.getPressedKeyModifier(), hasItems(KeyModifier.CONTROL));
+    }
+
+    @Test
+    public void can_release_all_keyModifier() {
+        DummyEvaluator dummyEvaluator = new DummyEvaluator();
+        EvaluatorHolder.register(dummyEvaluator);
+
+        Keyboard.keyDown(KeyModifier.CONTROL);
+        Keyboard.keyDown(KeyModifier.ALT);
+
+        assertThat(dummyEvaluator.getPressedKeyModifier().size(), is(2));
+        assertThat(dummyEvaluator.getPressedKeyModifier(), hasItems(KeyModifier.CONTROL, KeyModifier.ALT));
+
+        Keyboard.release();
+        assertThat(dummyEvaluator.getPressedKeyModifier().size(), is(0));
+    }
+
+//    @Test
+//    public void can_change_the_keyboard_layout() {
+//
+//    }
+
+    private class DummyEvaluator extends AbstractEvaluator {
+        @Override
+        public Object implementation() {
+            return null;
+        }
+
+        @SuppressWarnings("unchecked")
+        public List<KeyModifier> getPressedKeyModifier() {
+            return Collections.unmodifiableList(pressedKeyModifier);
+        }
+    }
+
+
+}
