@@ -8,7 +8,6 @@
         <version>3-SNAPSHOT</version>
     </parent>
 
-    <groupId>org.testatoo.core</groupId>
     <artifactId>testatoo-core</artifactId>
     <version>1.0-rc1-SNAPSHOT</version>
     <packaging>jar</packaging>
