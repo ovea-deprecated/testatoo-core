@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.testatoo</groupId>
         <artifactId>testatoo</artifactId>
-        <version>3-SNAPSHOT</version>
+        <version>3</version>
     </parent>
 
     <artifactId>testatoo-core</artifactId>
@@ -14,6 +14,12 @@
 
     <name>testatoo-core</name>
     <description>Testatoo Core</description>
+
+    <scm>
+        <connection>scm:git:git@github.com:Ovea/${project.name}.git</connection>
+        <developerConnection>scm:git:git@github.com:Ovea/${project.name}.git</developerConnection>
+        <url>http://github.com/Ovea/${project.name}</url>
+    </scm>
 
     <dependencies>
         <dependency>
