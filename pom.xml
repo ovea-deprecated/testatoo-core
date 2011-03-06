@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.testatoo</groupId>
         <artifactId>testatoo</artifactId>
-        <version>3</version>
+        <version>4</version>
     </parent>
 
     <artifactId>testatoo-core</artifactId>
