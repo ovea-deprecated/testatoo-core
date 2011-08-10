@@ -16,28 +16,12 @@
 
 package org.testatoo.core.matcher.mock;
 
-import org.testatoo.core.Evaluator;
-import org.testatoo.core.ListSelection;
-import org.testatoo.core.Selection;
-import org.testatoo.core.component.Button;
-import org.testatoo.core.component.CheckBox;
-import org.testatoo.core.component.ComboBox;
-import org.testatoo.core.component.Component;
-import org.testatoo.core.component.Field;
-import org.testatoo.core.component.FieldImpl;
-import org.testatoo.core.component.ListBox;
-import org.testatoo.core.component.Panel;
-import org.testatoo.core.component.Radio;
-import org.testatoo.core.component.TextField;
-import org.testatoo.core.component.datagrid.Cell;
-import org.testatoo.core.component.datagrid.Column;
-import org.testatoo.core.component.datagrid.DataGrid;
-import org.testatoo.core.component.datagrid.Row;
-import org.testatoo.core.nature.LabelSupport;
+import org.testatoo.core.*;
+import org.testatoo.core.component.*;
+import org.testatoo.core.component.datagrid.*;
+import org.testatoo.core.nature.*;
 
-import static org.mockito.Mockito.any;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 import static org.testatoo.core.ComponentType.*;
 
 public class MockFactory {
@@ -232,6 +216,13 @@ public class MockFactory {
         return new Button(evaluator, id);
     }
 
+    public static SizeSupport sizeSupport() {
+        VirtualComponent component = mock(VirtualComponent.class);
+        when(component.size()).thenReturn(2);
+        when(component.toString()).thenReturn("size:2");
+        return component;
+    }
+
     public static TextField textFieldWithMaxLength(final int maxLength) {
         Evaluator evaluator = mock(Evaluator.class);
 
@@ -339,14 +330,17 @@ public class MockFactory {
         return new Panel(evaluator, id);
     }
 
-    private static Selection<String> countries() {
-        return ListSelection.of("France", "Canada", "Germany", "Italy", "Spain");
-    }
-
     public static String format(String message) {
         String formatedMessage = message.replace("\n", "");
         formatedMessage = formatedMessage.replace("    ", "");
         return formatedMessage;
+    }
+
+    private static Selection<String> countries() {
+        return ListSelection.of("France", "Canada", "Germany", "Italy", "Spain");
+    }
+
+    private static abstract class VirtualComponent implements SizeSupport {
     }
 
 }

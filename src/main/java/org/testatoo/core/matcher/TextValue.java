@@ -23,7 +23,7 @@ import org.hamcrest.TypeSafeMatcher;
 import org.testatoo.core.nature.TextSupport;
 
 /**
- * This class is a matcher (written based on hamcrest possibilites) to test the expectedText of a graphic object.
+ * This class is a matcher (written based on hamcrest possibilites) to test the expected text of a graphic object.
  *
  * @author dev@testatoo.org
  */

@@ -27,13 +27,7 @@ import org.testatoo.core.component.datagrid.CellContainer;
 import org.testatoo.core.component.datagrid.Column;
 import org.testatoo.core.component.datagrid.DataGrid;
 import org.testatoo.core.component.datagrid.Row;
-import org.testatoo.core.nature.Checkable;
-import org.testatoo.core.nature.LabelSupport;
-import org.testatoo.core.nature.MultiSelectable;
-import org.testatoo.core.nature.SimpleSelectable;
-import org.testatoo.core.nature.TextSupport;
-import org.testatoo.core.nature.TitleSupport;
-import org.testatoo.core.nature.ValueSupport;
+import org.testatoo.core.nature.*;
 
 /**
  * This abstract class defines all the matchers (based on hamcrest matchers) used in testatoo tests.
@@ -207,6 +201,18 @@ public abstract class Matchers {
      */
     public static Matcher<TextSupport> text(String text) {
         return TextValue.text(text);
+    }
+
+
+    /**
+     * To test the size of a graphic object, using the syntax "size("xxxxxxx")"
+     *
+     * @param size the expected text
+     * @return a new SizeValue matcher
+     * @see SizeValue
+     */
+    public static Matcher<SizeSupport> size(int size) {
+        return SizeValue.size(size);
     }
 
     /**
