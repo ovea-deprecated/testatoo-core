@@ -16,10 +16,17 @@
 
 package org.testatoo.core.matcher.mock;
 
-import org.testatoo.core.*;
+import org.testatoo.core.Evaluator;
+import org.testatoo.core.EvaluatorHolder;
+import org.testatoo.core.ListSelection;
+import org.testatoo.core.Selection;
 import org.testatoo.core.component.*;
-import org.testatoo.core.component.datagrid.*;
-import org.testatoo.core.nature.*;
+import org.testatoo.core.component.datagrid.Cell;
+import org.testatoo.core.component.datagrid.Column;
+import org.testatoo.core.component.datagrid.DataGrid;
+import org.testatoo.core.component.datagrid.Row;
+import org.testatoo.core.nature.LabelSupport;
+import org.testatoo.core.nature.SizeSupport;
 
 import static org.mockito.Mockito.*;
 import static org.testatoo.core.ComponentType.*;
@@ -64,6 +71,34 @@ public class MockFactory {
         when(evaluator.existComponent(id)).thenReturn(true);
         when(evaluator.isVisible(any(Component.class))).thenReturn(false);
         when(evaluator.isEnabled(any(Component.class))).thenReturn(true);
+
+        return new Component(evaluator, id);
+    }
+
+    public static Component existentComponent() {
+        Evaluator evaluator = mock(Evaluator.class);
+
+        when(evaluator.name()).thenReturn(Evaluator.DEFAULT_NAME);
+        EvaluatorHolder.unregister(Evaluator.DEFAULT_NAME);
+        EvaluatorHolder.register(evaluator);
+
+        when(evaluator.existComponent(id)).thenReturn(true);
+        when(evaluator.isVisible(any(Component.class))).thenReturn(false);
+        when(evaluator.isEnabled(any(Component.class))).thenReturn(false);
+
+        return new Component(evaluator, id);
+    }
+
+    public static Component inExistentComponent() {
+        Evaluator evaluator = mock(Evaluator.class);
+
+        when(evaluator.name()).thenReturn(Evaluator.DEFAULT_NAME);
+        EvaluatorHolder.unregister(Evaluator.DEFAULT_NAME);
+        EvaluatorHolder.register(evaluator);
+
+        when(evaluator.existComponent(id)).thenReturn(true, false);
+        when(evaluator.isVisible(any(Component.class))).thenReturn(false);
+        when(evaluator.isEnabled(any(Component.class))).thenReturn(false);
 
         return new Component(evaluator, id);
     }

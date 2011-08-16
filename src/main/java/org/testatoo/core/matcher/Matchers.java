@@ -22,11 +22,7 @@ import org.testatoo.core.component.AbstractTextField;
 import org.testatoo.core.component.Component;
 import org.testatoo.core.component.ListModel;
 import org.testatoo.core.component.TextField;
-import org.testatoo.core.component.datagrid.Cell;
-import org.testatoo.core.component.datagrid.CellContainer;
-import org.testatoo.core.component.datagrid.Column;
-import org.testatoo.core.component.datagrid.DataGrid;
-import org.testatoo.core.component.datagrid.Row;
+import org.testatoo.core.component.datagrid.*;
 import org.testatoo.core.nature.*;
 
 /**
@@ -203,7 +199,6 @@ public abstract class Matchers {
         return TextValue.text(text);
     }
 
-
     /**
      * To test the size of a graphic object, using the syntax "size("xxxxxxx")"
      *
@@ -345,5 +340,13 @@ public abstract class Matchers {
         return LabelValue.label();
     }
 
-
+    /**
+     * To test the presence of a graphic object, using the syntax "exist()".
+     *
+     * @return a new Exist matcher
+     * @see Exist
+     */
+    public static Matcher<Component> exist() {
+        return Exist.exist();
+    }
 }

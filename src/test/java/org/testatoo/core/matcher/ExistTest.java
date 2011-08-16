@@ -17,29 +17,30 @@
 package org.testatoo.core.matcher;
 
 import org.junit.Test;
-import org.testatoo.core.EvaluatorHolder;
 
-import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
 import static org.junit.Assert.fail;
-import static org.testatoo.core.matcher.Matchers.visible;
-import static org.testatoo.core.matcher.mock.MockFactory.format;
-import static org.testatoo.core.matcher.mock.MockFactory.invisibleComponent;
-import static org.testatoo.core.matcher.mock.MockFactory.visibleComponent;
+import static org.testatoo.core.Language.assertThat;
+import static org.testatoo.core.matcher.Matchers.exist;
+import static org.testatoo.core.matcher.mock.MockFactory.*;
 
-public class VisibleTest {
+public class ExistTest {
 
     @Test
-    public void test_visibility_matcher() {
-        assertThat(visibleComponent(), is(visible()));
-        assertThat(invisibleComponent(), is(not(visible())));
+    public void test_exist_matcher_when_component_exist() {
+        assertThat(existentComponent(), exist());
+    }
+
+    @Test
+    public void test_exist_matcher_when_component_not_exist() {
+        assertThat(inExistentComponent(), not(exist()));
 
         try {
-            assertThat(invisibleComponent(), is(visible()));
+            assertThat(inExistentComponent(), exist());
             fail();
         } catch (AssertionError e) {
-            assertThat(format(e.getMessage()), is("Expected: is visible:true but: was <class org.testatoo.core.component.Component with state : enabled:true, visible:false>"));
+            assertThat(format(e.getMessage()), is("Expected: exist:true but: was <class org.testatoo.core.component.Component with state : enabled:false, visible:false>"));
         }
     }
 }
