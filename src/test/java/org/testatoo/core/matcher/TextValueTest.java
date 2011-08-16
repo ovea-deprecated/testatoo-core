@@ -21,10 +21,8 @@ import org.junit.Test;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.fail;
-import static org.testatoo.core.matcher.Matchers.has;
-import static org.testatoo.core.matcher.Matchers.text;
-import static org.testatoo.core.matcher.mock.MockFactory.button;
-import static org.testatoo.core.matcher.mock.MockFactory.format;
+import static org.testatoo.core.matcher.Matchers.*;
+import static org.testatoo.core.matcher.mock.MockFactory.*;
 
 public class TextValueTest {
 

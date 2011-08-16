@@ -17,16 +17,12 @@
 package org.testatoo.core.matcher;
 
 import org.junit.Test;
-import org.testatoo.core.EvaluatorHolder;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.not;
+import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.fail;
 import static org.testatoo.core.matcher.Matchers.visible;
-import static org.testatoo.core.matcher.mock.MockFactory.format;
-import static org.testatoo.core.matcher.mock.MockFactory.invisibleComponent;
-import static org.testatoo.core.matcher.mock.MockFactory.visibleComponent;
+import static org.testatoo.core.matcher.mock.MockFactory.*;
 
 public class VisibleTest {
 

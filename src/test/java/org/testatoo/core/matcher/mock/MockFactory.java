@@ -16,17 +16,10 @@
 
 package org.testatoo.core.matcher.mock;
 
-import org.testatoo.core.Evaluator;
-import org.testatoo.core.EvaluatorHolder;
-import org.testatoo.core.ListSelection;
-import org.testatoo.core.Selection;
+import org.testatoo.core.*;
 import org.testatoo.core.component.*;
-import org.testatoo.core.component.datagrid.Cell;
-import org.testatoo.core.component.datagrid.Column;
-import org.testatoo.core.component.datagrid.DataGrid;
-import org.testatoo.core.component.datagrid.Row;
-import org.testatoo.core.nature.LabelSupport;
-import org.testatoo.core.nature.SizeSupport;
+import org.testatoo.core.component.datagrid.*;
+import org.testatoo.core.nature.*;
 
 import static org.mockito.Mockito.*;
 import static org.testatoo.core.ComponentType.*;

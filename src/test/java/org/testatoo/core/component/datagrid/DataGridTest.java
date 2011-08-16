@@ -16,18 +16,13 @@
 
 package org.testatoo.core.component.datagrid;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.testatoo.core.ComponentException;
-import org.testatoo.core.Evaluator;
-import org.testatoo.core.ListSelection;
-import org.testatoo.core.Selection;
+import org.junit.*;
+import org.testatoo.core.*;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.fail;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 import static org.testatoo.core.ComponentType.Cell;
 import static org.testatoo.core.ComponentType.Column;
 import static org.testatoo.core.ComponentType.DataGrid;

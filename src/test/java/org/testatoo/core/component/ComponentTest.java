@@ -16,17 +16,14 @@
 
 package org.testatoo.core.component;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.testatoo.core.ComponentException;
-import org.testatoo.core.Evaluator;
+import org.junit.*;
+import org.testatoo.core.*;
 import org.testatoo.core.nature.Container;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.not;
+import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.fail;
+import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.*;
 import static org.testatoo.core.ComponentType.Window;
 

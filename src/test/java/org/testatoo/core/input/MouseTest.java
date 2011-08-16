@@ -16,17 +16,11 @@
 
 package org.testatoo.core.input;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.testatoo.core.Evaluator;
-import org.testatoo.core.EvaluatorHolder;
+import org.junit.*;
+import org.testatoo.core.*;
 import org.testatoo.core.component.Component;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 import static org.testatoo.core.ComponentType.Button;
 
 public class MouseTest {

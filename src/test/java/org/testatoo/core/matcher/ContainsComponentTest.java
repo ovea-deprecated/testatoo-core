@@ -16,26 +16,14 @@
 
 package org.testatoo.core.matcher;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.testatoo.core.Evaluator;
-import org.testatoo.core.ListSelection;
-import org.testatoo.core.Selection;
-import org.testatoo.core.component.Button;
-import org.testatoo.core.component.CheckBox;
-import org.testatoo.core.component.Component;
-import org.testatoo.core.component.Panel;
-import org.testatoo.core.component.Radio;
+import org.junit.*;
+import org.testatoo.core.*;
+import org.testatoo.core.component.*;
 
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.not;
+import static org.hamcrest.Matchers.*;
 import static org.mockito.Matchers.any;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-import static org.testatoo.core.ComponentType.Button;
-import static org.testatoo.core.ComponentType.CheckBox;
-import static org.testatoo.core.ComponentType.Panel;
-import static org.testatoo.core.ComponentType.Radio;
+import static org.mockito.Mockito.*;
+import static org.testatoo.core.ComponentType.*;
 import static org.testatoo.core.Language.assertThat;
 import static org.testatoo.core.matcher.ContainsComponent.contains;
 import static org.testatoo.core.matcher.mock.MockFactory.format;

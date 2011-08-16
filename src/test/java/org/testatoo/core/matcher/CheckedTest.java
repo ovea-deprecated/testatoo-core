@@ -19,8 +19,7 @@ package org.testatoo.core.matcher;
 import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.not;
+import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.fail;
 import static org.testatoo.core.matcher.Matchers.checked;
 import static org.testatoo.core.matcher.mock.MockFactory.*;

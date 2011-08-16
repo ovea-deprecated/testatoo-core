@@ -23,8 +23,7 @@ import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.fail;
 import static org.testatoo.core.Language.columns;
 import static org.testatoo.core.matcher.Matchers.has;
-import static org.testatoo.core.matcher.mock.MockFactory.dataGrid;
-import static org.testatoo.core.matcher.mock.MockFactory.format;
+import static org.testatoo.core.matcher.mock.MockFactory.*;
 
 public class ColumnSizeTest {
 

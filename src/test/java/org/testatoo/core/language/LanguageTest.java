@@ -16,33 +16,18 @@
 
 package org.testatoo.core.language;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.testatoo.core.Condition;
-import org.testatoo.core.Evaluator;
-import org.testatoo.core.EvaluatorHolder;
-import org.testatoo.core.component.CheckBox;
-import org.testatoo.core.component.Component;
-import org.testatoo.core.component.Radio;
-import org.testatoo.core.component.TextField;
-import org.testatoo.core.component.Window;
-import org.testatoo.core.input.Click;
-import org.testatoo.core.input.Key;
-import org.testatoo.core.input.KeyModifier;
-import org.testatoo.core.input.Keyboard;
-import org.testatoo.core.input.Mouse;
+import org.junit.*;
+import org.testatoo.core.*;
+import org.testatoo.core.component.*;
+import org.testatoo.core.input.*;
 
 import java.util.concurrent.TimeUnit;
 
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.not;
+import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.fail;
+import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.*;
-import static org.testatoo.core.ComponentType.CheckBox;
-import static org.testatoo.core.ComponentType.Radio;
-import static org.testatoo.core.ComponentType.TextField;
-import static org.testatoo.core.ComponentType.Window;
+import static org.testatoo.core.ComponentType.*;
 import static org.testatoo.core.Language.*;
 import static org.testatoo.core.matcher.Matchers.*;
 

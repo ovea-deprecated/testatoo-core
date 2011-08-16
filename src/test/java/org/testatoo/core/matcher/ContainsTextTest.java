@@ -21,10 +21,8 @@ import org.junit.Test;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.fail;
-import static org.testatoo.core.matcher.Matchers.containsExactlyText;
-import static org.testatoo.core.matcher.Matchers.containsText;
-import static org.testatoo.core.matcher.mock.MockFactory.format;
-import static org.testatoo.core.matcher.mock.MockFactory.simpleTextFieldWithText;
+import static org.testatoo.core.matcher.Matchers.*;
+import static org.testatoo.core.matcher.mock.MockFactory.*;
 
 public class ContainsTextTest {
 

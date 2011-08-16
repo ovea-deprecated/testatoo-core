@@ -18,13 +18,10 @@ package org.testatoo.core.matcher;
 
 import org.junit.*;
 import org.testatoo.core.*;
-import org.testatoo.core.component.Component;
 
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.not;
+import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.fail;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 import static org.testatoo.core.Language.assertThat;
 import static org.testatoo.core.matcher.Matchers.exist;
 import static org.testatoo.core.matcher.mock.MockFactory.*;
