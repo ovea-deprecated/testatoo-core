@@ -16,7 +16,8 @@
 
 package org.testatoo.core.component;
 
-import org.junit.*;
+import org.junit.Before;
+import org.junit.Test;
 import org.testatoo.core.Evaluator;
 
 import static org.hamcrest.MatcherAssert.assertThat;

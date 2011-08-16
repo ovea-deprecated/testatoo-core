@@ -16,10 +16,15 @@
 
 package org.testatoo.core.input;
 
-import org.junit.*;
-import org.testatoo.core.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.testatoo.core.AbstractEvaluator;
+import org.testatoo.core.Evaluator;
+import org.testatoo.core.EvaluatorHolder;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
@@ -124,6 +129,4 @@ public class KeyboardTest {
             return Collections.unmodifiableList(pressedKeyModifier);
         }
     }
-
-
 }

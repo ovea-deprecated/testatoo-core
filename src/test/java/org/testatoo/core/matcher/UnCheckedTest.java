@@ -37,5 +37,4 @@ public class UnCheckedTest {
             assertThat(format(e.getMessage()), is("Expected: is not checked:false but: was <class org.testatoo.core.component.CheckBox with state : enabled:true, visible:true, label:label, checked:false>"));
         }
     }
-
 }

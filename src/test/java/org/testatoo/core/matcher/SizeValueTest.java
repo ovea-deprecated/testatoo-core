@@ -27,13 +27,13 @@ import static org.testatoo.core.matcher.mock.MockFactory.*;
 public class SizeValueTest {
 
     @Test
-    public void test_size_matcher(){
+    public void test_size_matcher() {
         assertThat(sizeSupport(), has(size(2)));
 
-        try{
+        try {
             assertThat(sizeSupport(), has(size(3)));
             fail();
-        } catch(AssertionError e) {
+        } catch (AssertionError e) {
             assertThat(format(e.getMessage()), is("Expected: has size:3 but: was <size:2>"));
         }
     }

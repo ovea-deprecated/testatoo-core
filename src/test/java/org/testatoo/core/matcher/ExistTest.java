@@ -16,8 +16,11 @@
 
 package org.testatoo.core.matcher;
 
-import org.junit.*;
-import org.testatoo.core.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.testatoo.core.Evaluator;
+import org.testatoo.core.EvaluatorHolder;
 
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.fail;

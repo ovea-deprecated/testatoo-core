@@ -16,8 +16,11 @@
 
 package org.testatoo.core.input;
 
-import org.junit.*;
-import org.testatoo.core.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.testatoo.core.Evaluator;
+import org.testatoo.core.EvaluatorHolder;
 import org.testatoo.core.component.Component;
 
 import static org.mockito.Mockito.*;

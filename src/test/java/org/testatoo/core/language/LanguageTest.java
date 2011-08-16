@@ -16,8 +16,12 @@
 
 package org.testatoo.core.language;
 
-import org.junit.*;
-import org.testatoo.core.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.testatoo.core.Condition;
+import org.testatoo.core.Evaluator;
+import org.testatoo.core.EvaluatorHolder;
 import org.testatoo.core.component.*;
 import org.testatoo.core.input.*;
 
@@ -256,5 +260,4 @@ public class LanguageTest {
             assertThat(e.getMessage(), is("Unable to reach the condition in 1 SECONDS"));
         }
     }
-
 }

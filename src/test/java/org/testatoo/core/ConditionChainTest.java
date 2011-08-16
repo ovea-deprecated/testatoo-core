@@ -124,5 +124,4 @@ public class ConditionChainTest {
             return null;
         }
     }
-
 }
