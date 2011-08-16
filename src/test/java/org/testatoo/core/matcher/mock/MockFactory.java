@@ -75,13 +75,7 @@ public class MockFactory {
         return new Component(evaluator, id);
     }
 
-    public static Component existentComponent() {
-        Evaluator evaluator = mock(Evaluator.class);
-
-        when(evaluator.name()).thenReturn(Evaluator.DEFAULT_NAME);
-        EvaluatorHolder.unregister(Evaluator.DEFAULT_NAME);
-        EvaluatorHolder.register(evaluator);
-
+    public static Component existentComponent(Evaluator evaluator) {
         when(evaluator.existComponent(id)).thenReturn(true);
         when(evaluator.isVisible(any(Component.class))).thenReturn(false);
         when(evaluator.isEnabled(any(Component.class))).thenReturn(false);
@@ -89,13 +83,7 @@ public class MockFactory {
         return new Component(evaluator, id);
     }
 
-    public static Component inExistentComponent() {
-        Evaluator evaluator = mock(Evaluator.class);
-
-        when(evaluator.name()).thenReturn(Evaluator.DEFAULT_NAME);
-        EvaluatorHolder.unregister(Evaluator.DEFAULT_NAME);
-        EvaluatorHolder.register(evaluator);
-
+    public static Component inExistentComponent(Evaluator evaluator) {
         when(evaluator.existComponent(id)).thenReturn(true, false);
         when(evaluator.isVisible(any(Component.class))).thenReturn(false);
         when(evaluator.isEnabled(any(Component.class))).thenReturn(false);

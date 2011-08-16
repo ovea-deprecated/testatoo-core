@@ -16,28 +16,46 @@
 
 package org.testatoo.core.matcher;
 
-import org.junit.Test;
+import org.junit.*;
+import org.testatoo.core.*;
+import org.testatoo.core.component.Component;
 
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
 import static org.junit.Assert.fail;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 import static org.testatoo.core.Language.assertThat;
 import static org.testatoo.core.matcher.Matchers.exist;
 import static org.testatoo.core.matcher.mock.MockFactory.*;
 
 public class ExistTest {
 
+    private Evaluator evaluator;
+
+    @Before
+    public void setUp() {
+        evaluator = mock(Evaluator.class);
+        when(evaluator.name()).thenReturn(Evaluator.DEFAULT_NAME);
+        EvaluatorHolder.register(evaluator);
+    }
+
+    @After
+    public void clean() {
+        EvaluatorHolder.unregister(Evaluator.DEFAULT_NAME);
+    }
+
     @Test
     public void test_exist_matcher_when_component_exist() {
-        assertThat(existentComponent(), exist());
+        assertThat(existentComponent(evaluator), exist());
     }
 
     @Test
     public void test_exist_matcher_when_component_not_exist() {
-        assertThat(inExistentComponent(), not(exist()));
+        assertThat(inExistentComponent(evaluator), not(exist()));
 
         try {
-            assertThat(inExistentComponent(), exist());
+            assertThat(inExistentComponent(evaluator), exist());
             fail();
         } catch (AssertionError e) {
             assertThat(format(e.getMessage()), is("Expected: exist:true but: was <class org.testatoo.core.component.Component with state : enabled:false, visible:false>"));
