@@ -24,6 +24,9 @@ import java.util.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.mockito.Mockito.*;
+import static org.testatoo.core.Evaluator.DEFAULT_NAME;
+import static org.testatoo.core.input.Key.*;
+import static org.testatoo.core.input.KeyModifier.*;
 
 public class KeyboardTest {
 
@@ -32,14 +35,14 @@ public class KeyboardTest {
     @Before
     public void setUp() {
         evaluator = mock(Evaluator.class);
-        when(evaluator.name()).thenReturn(Evaluator.DEFAULT_NAME);
+        when(evaluator.name()).thenReturn(DEFAULT_NAME);
         // Needed for Keyboard ;)
         EvaluatorHolder.register(evaluator);
     }
 
     @After
     public void clean() {
-        EvaluatorHolder.unregister(Evaluator.DEFAULT_NAME);
+        EvaluatorHolder.unregister(DEFAULT_NAME);
     }
 
     @Test
@@ -51,24 +54,24 @@ public class KeyboardTest {
     // Key press is for key
     @Test
     public void can_pressKey() {
-        Keyboard.press(Key.ENTER);
-        verify(evaluator, times(1)).press(Key.ENTER);
+        Keyboard.press(ENTER);
+        verify(evaluator, times(1)).press(ENTER);
     }
 
     // Key down and release is for keyModifier
     @Test
     public void can_keyDown() {
-        Keyboard.keyDown(KeyModifier.CONTROL);
-        verify(evaluator, times(1)).keyDown(KeyModifier.CONTROL);
+        Keyboard.keyDown(CONTROL);
+        verify(evaluator, times(1)).keyDown(CONTROL);
     }
 
     @Test
     public void can_release() {
-        Keyboard.keyDown(KeyModifier.CONTROL);
-        Keyboard.release(KeyModifier.CONTROL);
+        Keyboard.keyDown(CONTROL);
+        Keyboard.release(CONTROL);
 
-        verify(evaluator, times(1)).keyDown(KeyModifier.CONTROL);
-        verify(evaluator, times(1)).release(KeyModifier.CONTROL);
+        verify(evaluator, times(1)).keyDown(CONTROL);
+        verify(evaluator, times(1)).release(CONTROL);
     }
 
     @Test
@@ -78,16 +81,16 @@ public class KeyboardTest {
 
         assertThat(dummyEvaluator.getPressedKeyModifier().size(), is(0));
 
-        Keyboard.keyDown(KeyModifier.CONTROL);
-        Keyboard.keyDown(KeyModifier.ALT);
+        Keyboard.keyDown(CONTROL);
+        Keyboard.keyDown(ALT);
 
         assertThat(dummyEvaluator.getPressedKeyModifier().size(), is(2));
-        assertThat(dummyEvaluator.getPressedKeyModifier(), hasItems(KeyModifier.CONTROL, KeyModifier.ALT));
+        assertThat(dummyEvaluator.getPressedKeyModifier(), hasItems(CONTROL, ALT));
 
-        Keyboard.release(KeyModifier.ALT);
+        Keyboard.release(ALT);
 
         assertThat(dummyEvaluator.getPressedKeyModifier().size(), is(1));
-        assertThat(dummyEvaluator.getPressedKeyModifier(), hasItems(KeyModifier.CONTROL));
+        assertThat(dummyEvaluator.getPressedKeyModifier(), hasItems(CONTROL));
     }
 
     @Test
@@ -95,11 +98,11 @@ public class KeyboardTest {
         DummyEvaluator dummyEvaluator = new DummyEvaluator();
         EvaluatorHolder.register(dummyEvaluator);
 
-        Keyboard.keyDown(KeyModifier.CONTROL);
-        Keyboard.keyDown(KeyModifier.ALT);
+        Keyboard.keyDown(CONTROL);
+        Keyboard.keyDown(ALT);
 
         assertThat(dummyEvaluator.getPressedKeyModifier().size(), is(2));
-        assertThat(dummyEvaluator.getPressedKeyModifier(), hasItems(KeyModifier.CONTROL, KeyModifier.ALT));
+        assertThat(dummyEvaluator.getPressedKeyModifier(), hasItems(CONTROL, ALT));
 
         Keyboard.release();
         assertThat(dummyEvaluator.getPressedKeyModifier().size(), is(0));
