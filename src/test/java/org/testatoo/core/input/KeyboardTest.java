@@ -25,7 +25,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.mockito.Mockito.*;
 import static org.testatoo.core.Evaluator.DEFAULT_NAME;
-import static org.testatoo.core.input.Key.*;
+import static org.testatoo.core.input.Key.ENTER;
 import static org.testatoo.core.input.KeyModifier.*;
 
 public class KeyboardTest {
