@@ -61,31 +61,12 @@ import static org.testatoo.core.ComponentType.Undefined;
  */
 public abstract class AbstractEvaluator<T> implements Evaluator<T> {
 
-    private Condition condition = ConditionChain.create();
     protected List<KeyModifier> pressedKeyModifier = new ArrayList<KeyModifier>();
     protected KeyboardLayout keyboardLayout = new USEnglishLayout();
 
     @Override
     public String name() {
         return DEFAULT_NAME;
-    }
-
-    /**
-     * @see org.testatoo.core.Evaluator
-     */
-    @Override
-    public void setWaitingCondition(Condition condition) {
-        if (condition != null) {
-            this.condition = condition;
-        }
-    }
-
-    /**
-     * @see org.testatoo.core.Evaluator
-     */
-    @Override
-    public Condition getWaitingCondition() {
-        return condition;
     }
 
     /**
