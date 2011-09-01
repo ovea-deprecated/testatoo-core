@@ -19,7 +19,7 @@ package org.testatoo.core.input;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.testatoo.core.AbstractEvaluator;
+import org.testatoo.core.EvaluatorAdapter;
 import org.testatoo.core.Evaluator;
 import org.testatoo.core.EvaluatorHolder;
 
@@ -118,10 +118,15 @@ public class KeyboardTest {
 //
 //    }
 
-    private class DummyEvaluator extends AbstractEvaluator {
+    private class DummyEvaluator extends EvaluatorAdapter {
         @Override
         public Object implementation() {
             return null;
+        }
+
+        @Override
+        public String evaluate(String expression) {
+            return "";
         }
 
         @SuppressWarnings("unchecked")

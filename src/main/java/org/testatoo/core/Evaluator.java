@@ -63,23 +63,11 @@ public interface Evaluator<T> {
     String name();
 
     /**
-     * Set a waiting condition
-     *
-     * @param condition, the waiting condition
-     */
-    public void setWaitingCondition(Condition condition);
-
-    /**
      * Set the language specific char converter
      *
      * @param converter, the language specific converter (by default USEnglishLayout)
      */
     public void setI18nCharConverter(KeyboardLayout converter);
-
-    /**
-     * @return The waiting condition
-     */
-    public Condition getWaitingCondition();
 
     /**
      * To know if a given container contains a given component
@@ -439,4 +427,6 @@ public interface Evaluator<T> {
      * @return the page source
      */
     String pageSource();
+
+    String evaluate(String expression);
 }

@@ -16,42 +16,18 @@
 
 package org.testatoo.core;
 
-import org.testatoo.core.component.AbstractTextField;
-import org.testatoo.core.component.AbstractWindow;
-import org.testatoo.core.component.AlertBox;
-import org.testatoo.core.component.Button;
-import org.testatoo.core.component.CheckBox;
-import org.testatoo.core.component.Component;
-import org.testatoo.core.component.DialogBox;
-import org.testatoo.core.component.FileDialog;
-import org.testatoo.core.component.Image;
-import org.testatoo.core.component.Link;
-import org.testatoo.core.component.ListModel;
-import org.testatoo.core.component.Prompt;
-import org.testatoo.core.component.datagrid.Cell;
-import org.testatoo.core.component.datagrid.CellContainer;
-import org.testatoo.core.component.datagrid.Column;
-import org.testatoo.core.component.datagrid.DataGrid;
-import org.testatoo.core.component.datagrid.Row;
+import org.testatoo.core.component.*;
+import org.testatoo.core.component.datagrid.*;
 import org.testatoo.core.input.Click;
 import org.testatoo.core.input.Key;
 import org.testatoo.core.input.KeyModifier;
 import org.testatoo.core.input.KeyboardLayout;
 import org.testatoo.core.input.i18n.USEnglishLayout;
-import org.testatoo.core.nature.Checkable;
-import org.testatoo.core.nature.Container;
-import org.testatoo.core.nature.IconSupport;
-import org.testatoo.core.nature.LabelSupport;
-import org.testatoo.core.nature.TextSupport;
-import org.testatoo.core.nature.TitleSupport;
-import org.testatoo.core.nature.ValueSupport;
+import org.testatoo.core.nature.*;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
-import static java.lang.Boolean.FALSE;
-import static org.testatoo.core.ComponentType.Undefined;
 
 /**
  * This is the abstract base class corresponding to the Evaluator interface.
@@ -59,9 +35,9 @@ import static org.testatoo.core.ComponentType.Undefined;
  *
  * @author dev@testatoo.org
  */
-public abstract class AbstractEvaluator<T> implements Evaluator<T> {
+public class EvaluatorAdapter<T> implements Evaluator<T> {
 
-    protected List<KeyModifier> pressedKeyModifier = new ArrayList<KeyModifier>();
+    protected final List<KeyModifier> pressedKeyModifier = new ArrayList<KeyModifier>();
     protected KeyboardLayout keyboardLayout = new USEnglishLayout();
 
     @Override
@@ -69,295 +45,195 @@ public abstract class AbstractEvaluator<T> implements Evaluator<T> {
         return DEFAULT_NAME;
     }
 
-    /**
-     * @see org.testatoo.core.Evaluator
-     */
     @Override
     public void setI18nCharConverter(KeyboardLayout converter) {
         this.keyboardLayout = converter;
     }
 
-    /**
-     * @see org.testatoo.core.Evaluator
-     */
     @Override
     public Boolean contains(Container container, Component... component) {
-        return FALSE;
+        throw new UnsupportedOperationException();
     }
 
-    /**
-     * @see org.testatoo.core.Evaluator
-     */
     @Override
     public void click(Component component, Click which) {
+        throw new UnsupportedOperationException();
     }
 
-    /**
-     * @see org.testatoo.core.Evaluator
-     */
     @Override
     public void doubleClick(Component component) {
+        throw new UnsupportedOperationException();
     }
 
-    /**
-     * @see org.testatoo.core.Evaluator
-     */
     @Override
     public void mouseOver(Component component) {
+        throw new UnsupportedOperationException();
     }
 
-    /**
-     * @see org.testatoo.core.Evaluator
-     */
     @Override
     public void mouseOut(Component component) {
+        throw new UnsupportedOperationException();
     }
 
-    /**
-     * @see org.testatoo.core.Evaluator
-     */
     @Override
     public Boolean existComponent(String id) {
-        return FALSE;
+        throw new UnsupportedOperationException();
     }
 
-    /**
-     * @see org.testatoo.core.Evaluator
-     */
     @Override
     public String icon(IconSupport iconSupport) {
-        return "";
+        throw new UnsupportedOperationException();
     }
 
-    /**
-     * @see org.testatoo.core.Evaluator
-     */
     @Override
     public String text(TextSupport textSupport) {
-        return "";
+        throw new UnsupportedOperationException();
     }
 
-    /**
-     * @see org.testatoo.core.Evaluator
-     */
     @Override
     public void check(Checkable checkable) {
+        throw new UnsupportedOperationException();
     }
 
-    /**
-     * @see org.testatoo.core.Evaluator
-     */
     @Override
     public Boolean isChecked(Checkable checkable) {
-        return FALSE;
+        throw new UnsupportedOperationException();
     }
 
-    /**
-     * @see org.testatoo.core.Evaluator
-     */
     @Override
     public void unCheck(CheckBox checkBox) {
+        throw new UnsupportedOperationException();
     }
 
-    /**
-     * @see org.testatoo.core.Evaluator
-     */
     @Override
     public String value(ValueSupport valueSupport) {
-        return "";
+        throw new UnsupportedOperationException();
     }
 
-    /**
-     * @see org.testatoo.core.Evaluator
-     */
     @Override
     public Boolean isVisible(Component component) {
-        return FALSE;
+        throw new UnsupportedOperationException();
     }
 
-    /**
-     * @see org.testatoo.core.Evaluator
-     */
     @Override
     public Boolean isEnabled(Component component) {
-        return FALSE;
+        throw new UnsupportedOperationException();
     }
 
-    /**
-     * @see org.testatoo.core.Evaluator
-     */
     @Override
     public Selection<String> selectedValues(ListModel listModel) {
-        return ListSelection.empty();
+        throw new UnsupportedOperationException();
     }
 
-    /**
-     * @see org.testatoo.core.Evaluator
-     */
     @Override
     public void unselect(String value, ListModel listModel) {
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void unselectAll(ListModel listModel) {
+        throw new UnsupportedOperationException();
     }
 
-    /**
-     * @see org.testatoo.core.Evaluator
-     */
     @Override
     public Selection<String> values(ListModel listModel) {
-        return ListSelection.empty();
+        throw new UnsupportedOperationException();
     }
 
-    /**
-     * @see org.testatoo.core.Evaluator
-     */
     @Override
     public void select(String value, ListModel listModel) {
+        throw new UnsupportedOperationException();
     }
 
-    /**
-     * @see org.testatoo.core.Evaluator
-     */
     @Override
     public String source(Image image) {
-        return "";
+        throw new UnsupportedOperationException();
     }
 
-    /**
-     * @see org.testatoo.core.Evaluator
-     */
     @Override
     public String label(LabelSupport labelSupport) {
-        return "";
+        throw new UnsupportedOperationException();
     }
 
-    /**
-     * @see org.testatoo.core.Evaluator
-     */
     @Override
     public Integer maxLength(AbstractTextField textField) {
-        return 0;
+        throw new UnsupportedOperationException();
     }
 
-    /**
-     * @see org.testatoo.core.Evaluator
-     */
     @Override
     public void reset(AbstractTextField textField) {
+        throw new UnsupportedOperationException();
     }
 
-    /**
-     * @see org.testatoo.core.Evaluator
-     */
     @Override
     public String reference(Link link) {
-        return "";
+        throw new UnsupportedOperationException();
     }
 
-    /**
-     * @see org.testatoo.core.Evaluator
-     */
     @Override
     public String title(TitleSupport titleSupport) {
-        return "";
+        throw new UnsupportedOperationException();
     }
 
-    /**
-     * @see org.testatoo.core.Evaluator
-     */
     @Override
     public String message(AlertBox alertBox) {
-        return "";
+        throw new UnsupportedOperationException();
     }
 
-    /**
-     * @see org.testatoo.core.Evaluator
-     */
     @Override
     public Selection<Button> buttons(DialogBox dialogBox) {
-        return ListSelection.empty();
+        throw new UnsupportedOperationException();
     }
 
-    /**
-     * @see org.testatoo.core.Evaluator
-     */
     @Override
     public void close(AbstractWindow window) {
+        throw new UnsupportedOperationException();
     }
 
-    /**
-     * @see org.testatoo.core.Evaluator
-     */
     @Override
     public String message(DialogBox dialogBox) {
-        return "";
+        throw new UnsupportedOperationException();
     }
 
-    /**
-     * @see org.testatoo.core.Evaluator
-     */
     @Override
     public String message(Prompt prompt) {
-        return "";
+        throw new UnsupportedOperationException();
     }
 
-    /**
-     * @see org.testatoo.core.Evaluator
-     */
     @Override
     public Selection<Column> columns(DataGrid dataGrid) {
-        return ListSelection.empty();
+        throw new UnsupportedOperationException();
     }
 
-    /**
-     * @see org.testatoo.core.Evaluator
-     */
     @Override
     public Selection<Row> rows(DataGrid dataGrid) {
-        return ListSelection.empty();
+        throw new UnsupportedOperationException();
     }
 
-    /**
-     * @see org.testatoo.core.Evaluator
-     */
     @Override
     public ComponentType componentType(String id) {
-        return Undefined;
+        throw new UnsupportedOperationException();
     }
 
-    /**
-     * @see org.testatoo.core.Evaluator
-     */
     @Override
     public void dragAndDrop(Component from, Component to) {
+        throw new UnsupportedOperationException();
     }
 
-    /**
-     * @see org.testatoo.core.Evaluator
-     */
     @Override
     public void keyDown(KeyModifier keyModifier) {
         pressedKeyModifier.add(keyModifier);
     }
 
-    /**
-     * @see org.testatoo.core.Evaluator
-     */
     @Override
     public void release(KeyModifier keyModifier) {
         pressedKeyModifier.remove(keyModifier);
     }
 
-    /**
-     * @see org.testatoo.core.Evaluator
-     */
     @Override
     public void release() {
         List<KeyModifier> keys = new ArrayList<KeyModifier>(pressedKeyModifier);
         Collections.reverse(keys);
-
         try {
             for (KeyModifier keyModifier : keys) {
                 release(keyModifier);
@@ -367,78 +243,64 @@ public abstract class AbstractEvaluator<T> implements Evaluator<T> {
         }
     }
 
-    /**
-     * @see org.testatoo.core.Evaluator
-     */
     @Override
     public Selection<Button> buttons(Prompt prompt) {
-        return ListSelection.empty();
+        throw new UnsupportedOperationException();
     }
 
-    /**
-     * @see org.testatoo.core.Evaluator
-     */
     @Override
     public void type(String text) {
+        throw new UnsupportedOperationException();
     }
 
-    /**
-     * @see org.testatoo.core.Evaluator
-     */
     @Override
     public void press(Key key) {
+        throw new UnsupportedOperationException();
     }
 
-    /**
-     * @see org.testatoo.core.Evaluator
-     */
     @Override
     public Boolean hasFocus(Component component) {
-        return FALSE;
+        throw new UnsupportedOperationException();
     }
 
-    /**
-     * @see org.testatoo.core.Evaluator
-     */
     @Override
     public void selectFilePath(String filePath, FileDialog fileDialog) {
+        throw new UnsupportedOperationException();
     }
 
-    /**
-     * @see org.testatoo.core.Evaluator
-     */
     @Override
     public String selectedFilePath(FileDialog fileDialog) {
-        return "";
+        throw new UnsupportedOperationException();
     }
 
-    /**
-     * @see org.testatoo.core.Evaluator
-     */
     @Override
     public void focusOn(Component component) {
+        throw new UnsupportedOperationException();
     }
 
-    /**
-     * @see org.testatoo.core.Evaluator
-     */
     @Override
     public Selection<Cell> cells(CellContainer cellContainer) {
-        return ListSelection.empty();
+        throw new UnsupportedOperationException();
     }
 
-    /**
-     * @see org.testatoo.core.Evaluator
-     */
     @Override
     public void open(String url) {
+        throw new UnsupportedOperationException();
     }
 
-    /**
-     * @see org.testatoo.core.Evaluator
-     */
     @Override
     public String pageSource() {
-        return null;
+        throw new UnsupportedOperationException();
     }
+
+    @Override
+    public String evaluate(String expression) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public T implementation() {
+        throw new UnsupportedOperationException();
+    }
+
 }
