@@ -35,7 +35,7 @@ import java.util.List;
  *
  * @author dev@testatoo.org
  */
-public class EvaluatorAdapter<T> implements Evaluator<T> {
+public abstract class EvaluatorSkeleton<T> implements Evaluator<T> {
 
     protected final List<KeyModifier> pressedKeyModifier = new ArrayList<KeyModifier>();
     protected KeyboardLayout keyboardLayout = new USEnglishLayout();
@@ -46,7 +46,7 @@ public class EvaluatorAdapter<T> implements Evaluator<T> {
     }
 
     @Override
-    public void setI18nCharConverter(KeyboardLayout converter) {
+    public final void setI18nCharConverter(KeyboardLayout converter) {
         this.keyboardLayout = converter;
     }
 
@@ -221,17 +221,17 @@ public class EvaluatorAdapter<T> implements Evaluator<T> {
     }
 
     @Override
-    public void keyDown(KeyModifier keyModifier) {
+    public final void keyDown(KeyModifier keyModifier) {
         pressedKeyModifier.add(keyModifier);
     }
 
     @Override
-    public void release(KeyModifier keyModifier) {
+    public final void release(KeyModifier keyModifier) {
         pressedKeyModifier.remove(keyModifier);
     }
 
     @Override
-    public void release() {
+    public final void release() {
         List<KeyModifier> keys = new ArrayList<KeyModifier>(pressedKeyModifier);
         Collections.reverse(keys);
         try {
@@ -295,11 +295,6 @@ public class EvaluatorAdapter<T> implements Evaluator<T> {
 
     @Override
     public String evaluate(String expression) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public T implementation() {
         throw new UnsupportedOperationException();
     }
 

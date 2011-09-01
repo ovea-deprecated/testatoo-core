@@ -85,40 +85,7 @@ public class ConditionChainTest {
         assertThat(chain.isReach(), is(false));
     }
 
-    @Test
-    public void evaluator_is_set_with_default_Condition() {
-        Evaluator evaluator = new DummyEvaluator();
-        assertThat(evaluator.getWaitingCondition(), is(notNullValue()));
-
-        assertThat(evaluator.getWaitingCondition(), is(instanceOf(ConditionChain.class)));
-    }
-
-    @Test
-    public void cannot_set_a_condition_null_to_Evaluator() {
-        Evaluator evaluator = new DummyEvaluator();
-        assertThat(evaluator.getWaitingCondition(), is(notNullValue()));
-
-        evaluator.setWaitingCondition(null);
-        assertThat(evaluator.getWaitingCondition(), is(notNullValue()));
-    }
-
-    @Test
-    public void can_set_a_Condition_to_Evaluator() {
-        Evaluator evaluator = new DummyEvaluator();
-
-        Condition condition = new Condition() {
-            @Override
-            public boolean isReach() {
-                return false;
-            }
-        };
-
-        evaluator.setWaitingCondition(condition);
-
-        assertThat(evaluator.getWaitingCondition(), is(condition));
-    }
-
-    private class DummyEvaluator extends AbstractEvaluator {
+    private class DummyEvaluator extends EvaluatorSkeleton {
         @Override
         public Object implementation() {
             return null;
