@@ -130,6 +130,10 @@ public abstract class Language {
         return element;
     }
 
+    public static String eval(String expression) {
+        return EvaluatorHolder.get().evaluate(expression);
+    }
+
     /**
      * To simulate a click on a component
      *
