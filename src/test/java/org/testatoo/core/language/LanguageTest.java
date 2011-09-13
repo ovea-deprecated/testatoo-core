@@ -19,7 +19,6 @@ package org.testatoo.core.language;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.testatoo.core.Condition;
 import org.testatoo.core.Evaluator;
 import org.testatoo.core.EvaluatorHolder;
 import org.testatoo.core.component.*;
@@ -208,26 +207,6 @@ public class LanguageTest {
         verify(evaluator, times(1)).release(KeyModifier.CONTROL);
         verify(evaluator, times(1)).press(Key.F6);
         verify(evaluator, times(1)).release();
-    }
-
-    @Test
-    public void test_wait_for_condition() {
-        final Component component = new Component(evaluator, id);
-
-        Condition condition = new Condition() {
-            @Override
-            public boolean isReach() {
-                int i = 0;
-                while (i < 3) {
-                    clickOn(component);
-                    i++;
-                }
-                return true;
-            }
-        };
-
-        waitingFor(condition);
-        verify(evaluator, times(3)).click(component, Click.left);
     }
 
     @Test

@@ -212,21 +212,6 @@ public abstract class Language {
     }
 
     /**
-     * Waiting until a condition is reached
-     *
-     * @param condition a condition
-     */
-    public static void waitingFor(Condition condition) {
-        while (!condition.isReach()) {
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException e) {
-                // Do nothing
-            }
-        }
-    }
-
-    /**
      * Waiting until an assertion is reached. The timeout is 1 second
      *
      * @param <T>     type of the graphic object
