@@ -45,6 +45,16 @@ public abstract class Matchers {
         return Enabled.enabled();
     }
 
+    /**
+     * To test the validity of a graphic object, using the syntax "valid()".
+     *
+     * @return a new Validity matcher
+     * @see Validity
+     */
+    public static Matcher<ValiditySupport> valid() {
+        return Validity.valid();
+    }
+
 
     /**
      * To test the state disabled of a graphic object, using the syntax "disabled()".

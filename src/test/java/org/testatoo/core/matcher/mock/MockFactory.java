@@ -26,6 +26,7 @@ import org.testatoo.core.component.datagrid.DataGrid;
 import org.testatoo.core.component.datagrid.Row;
 import org.testatoo.core.nature.LabelSupport;
 import org.testatoo.core.nature.SizeSupport;
+import org.testatoo.core.nature.ValiditySupport;
 
 import static org.mockito.Mockito.*;
 import static org.testatoo.core.ComponentType.*;
@@ -352,6 +353,20 @@ public class MockFactory {
         return new Panel(evaluator, id);
     }
 
+    public static VirtualComponent validComponent() {
+        VirtualComponent component = mock(VirtualComponent.class);
+        when(component.isValid()).thenReturn(true);
+        when(component.toString()).thenReturn("valid:true");
+        return component;
+    }
+
+    public static VirtualComponent invalidComponent() {
+        VirtualComponent component = mock(VirtualComponent.class);
+        when(component.isValid()).thenReturn(false);
+        when(component.toString()).thenReturn("valid:false");
+        return component;
+    }
+
     public static String format(String message) {
         String formatedMessage = message.replace("\n", "");
         formatedMessage = formatedMessage.replace("    ", "");
@@ -362,6 +377,6 @@ public class MockFactory {
         return ListSelection.of("France", "Canada", "Germany", "Italy", "Spain");
     }
 
-    private static abstract class VirtualComponent implements SizeSupport {
+    private static abstract class VirtualComponent implements SizeSupport, ValiditySupport {
     }
 }
