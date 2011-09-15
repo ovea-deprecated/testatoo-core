@@ -24,6 +24,7 @@ import org.testatoo.core.component.datagrid.Cell;
 import org.testatoo.core.component.datagrid.Column;
 import org.testatoo.core.component.datagrid.DataGrid;
 import org.testatoo.core.component.datagrid.Row;
+import org.testatoo.core.nature.Collapsable;
 import org.testatoo.core.nature.LabelSupport;
 import org.testatoo.core.nature.SizeSupport;
 import org.testatoo.core.nature.ValiditySupport;
@@ -367,6 +368,20 @@ public class MockFactory {
         return component;
     }
 
+    public static VirtualComponent collapsedComponent() {
+        VirtualComponent component = mock(VirtualComponent.class);
+        when(component.isCollapsed()).thenReturn(true);
+        when(component.toString()).thenReturn("collapsed:true");
+        return component;
+    }
+
+    public static VirtualComponent unCollapsedComponent() {
+        VirtualComponent component = mock(VirtualComponent.class);
+        when(component.isCollapsed()).thenReturn(false);
+        when(component.toString()).thenReturn("collapsed:false");
+        return component;
+    }
+
     public static String format(String message) {
         String formatedMessage = message.replace("\n", "");
         formatedMessage = formatedMessage.replace("    ", "");
@@ -377,6 +392,6 @@ public class MockFactory {
         return ListSelection.of("France", "Canada", "Germany", "Italy", "Spain");
     }
 
-    private static abstract class VirtualComponent implements SizeSupport, ValiditySupport {
+    private static abstract class VirtualComponent implements SizeSupport, ValiditySupport, Collapsable {
     }
 }

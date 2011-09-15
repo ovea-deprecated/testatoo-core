@@ -55,6 +55,9 @@ public abstract class Matchers {
         return Validity.valid();
     }
 
+    public static Matcher<Collapsable> collapsed() {
+        return Collapsed.collapsed();
+    }
 
     /**
      * To test the state disabled of a graphic object, using the syntax "disabled()".
