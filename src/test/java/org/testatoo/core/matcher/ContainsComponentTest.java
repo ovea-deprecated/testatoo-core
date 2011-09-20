@@ -33,21 +33,16 @@ import static org.testatoo.core.matcher.mock.MockFactory.format;
 
 public class ContainsComponentTest {
 
-    private static String panelId = "panelId";
-    private static String checkboxId = "checkboxId";
-    private static String radioId = "radioId";
-    private static String buttonId = "buttonId";
-
     private Panel panel;
     private CheckBox checkBox;
     private Radio radio;
     private Button button;
 
-
     @Before
     public void beforeMethod() {
         Evaluator evaluator = mock(Evaluator.class);
 
+        String panelId = "panelId";
         when(evaluator.existComponent(panelId)).thenReturn(true);
         when(evaluator.isVisible(any(Component.class))).thenReturn(true);
         when(evaluator.isEnabled(any(Component.class))).thenReturn(true);
@@ -56,6 +51,7 @@ public class ContainsComponentTest {
 
         panel = new Panel(evaluator, panelId);
 
+        String checkboxId = "checkboxId";
         when(evaluator.existComponent(checkboxId)).thenReturn(true);
         when(evaluator.componentType(checkboxId)).thenReturn(CheckBox);
         when(evaluator.isVisible(any(Component.class))).thenReturn(true);
@@ -65,6 +61,7 @@ public class ContainsComponentTest {
 
         checkBox = new CheckBox(evaluator, checkboxId);
 
+        String radioId = "radioId";
         when(evaluator.existComponent(radioId)).thenReturn(true);
         when(evaluator.componentType(radioId)).thenReturn(Radio);
 
@@ -75,6 +72,7 @@ public class ContainsComponentTest {
 
         radio = new Radio(evaluator, radioId);
 
+        String buttonId = "buttonId";
         when(evaluator.existComponent(buttonId)).thenReturn(true);
         when(evaluator.componentType(buttonId)).thenReturn(Button);
         when(evaluator.isVisible(any(Component.class))).thenReturn(true);
@@ -101,17 +99,9 @@ public class ContainsComponentTest {
         assertThat(panel, not(contains(button)));
 
         try {
-            assertThat(button, contains(panel));
-        } catch (AssertionError e) {
-            assertThat(format(e.getMessage()), is("Expected: a container but: was <class org.testatoo.core.component.Button with state : enabled:true, visible:true, text:buttonText, icon:>"));
-        }
-
-        try {
             assertThat(panel, contains(button));
         } catch (AssertionError e) {
             assertThat(format(e.getMessage()), is("Expected: contain one of {<class org.testatoo.core.component.Button with state : enabled:true, visible:true, text:buttonText, icon:>} but: was <class org.testatoo.core.component.Panel with state : enabled:true, visible:true, title:myPanelTitle>"));
         }
-
     }
-
 }

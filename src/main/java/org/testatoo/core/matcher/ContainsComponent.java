@@ -28,15 +28,14 @@ import org.testatoo.core.nature.Container;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ContainsComponent<T> extends TypeSafeMatcher<Component> {
+public class ContainsComponent extends TypeSafeMatcher<Container> {
 
     private List<Component> selection;
     private Boolean notContainer = false;
 
-    public boolean matchesSafely(Component component) {
+    public boolean matchesSafely(Container container) {
 
         try {
-            Container container = (Container) component;
             return container.contains(selection.toArray(new Component[selection.size()]));
         } catch (ClassCastException e) {
             notContainer = true;
@@ -64,15 +63,12 @@ public class ContainsComponent<T> extends TypeSafeMatcher<Component> {
     }
 
     @Factory
-    public static Matcher<Component> contains(Selection<? extends Component> components) {
-        return new ContainsComponent<Component>(components);
+    public static Matcher<Container> contains(Selection<? extends Component> components) {
+        return new ContainsComponent(components);
     }
 
     @Factory
-    public static Matcher<Component> contains(Component... components) {
-        return new ContainsComponent<Component>(ListSelection.of(components));
+    public static Matcher<Container> contains(Component... components) {
+        return new ContainsComponent(ListSelection.of(components));
     }
-
-
 }
-

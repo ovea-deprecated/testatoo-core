@@ -42,5 +42,4 @@ public class ValueTest {
             assertThat(format(e.getMessage()), is("Expected: has value:otherValue but: was <class org.testatoo.core.component.FieldImpl with state : enabled:true, visible:true, value:myValue, label:label>"));
         }
     }
-
 }

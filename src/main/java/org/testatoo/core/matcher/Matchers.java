@@ -241,7 +241,7 @@ public abstract class Matchers {
      * @return a new ContainsComponent matcher
      * @see ContainsComponent
      */
-    public static Matcher<Component> contains(Component... components) {
+    public static Matcher<Container> contains(Component... components) {
         return ContainsComponent.contains(components);
     }
 
@@ -252,7 +252,7 @@ public abstract class Matchers {
      * @return a new ContainsComponent matcher
      * @see ContainsComponent
      */
-    public static Matcher<Component> contains(Selection<Component> selection) {
+    public static Matcher<Container> contains(Selection<Component> selection) {
         return ContainsComponent.contains(selection);
     }
 

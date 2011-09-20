@@ -23,12 +23,11 @@ package org.testatoo.core.nature;
  */
 public interface SizeSupport {
 
-/**
+    /**
      * To get the size of the graphic object
      *
      * @return the size of the graphic object
      */
     int size();
-
 
 }

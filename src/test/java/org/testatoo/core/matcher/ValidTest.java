@@ -41,5 +41,4 @@ public class ValidTest {
             assertThat(format(e.getMessage()), is("Expected: is valid:true but: was <valid:false>"));
         }
     }
-
 }
