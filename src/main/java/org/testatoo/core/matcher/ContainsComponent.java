@@ -50,7 +50,7 @@ public class ContainsComponent extends TypeSafeMatcher<Container> {
             return;
         }
 
-        description.appendText("contain one of ");
+        description.appendText("contain all of ");
         description.appendValueList("{", ", ", "}", selection);
 
     }

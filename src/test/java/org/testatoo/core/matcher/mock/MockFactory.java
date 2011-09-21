@@ -24,10 +24,7 @@ import org.testatoo.core.component.datagrid.Cell;
 import org.testatoo.core.component.datagrid.Column;
 import org.testatoo.core.component.datagrid.DataGrid;
 import org.testatoo.core.component.datagrid.Row;
-import org.testatoo.core.nature.Collapsable;
-import org.testatoo.core.nature.LabelSupport;
-import org.testatoo.core.nature.SizeSupport;
-import org.testatoo.core.nature.ValiditySupport;
+import org.testatoo.core.nature.*;
 
 import static org.mockito.Mockito.*;
 import static org.testatoo.core.ComponentType.*;
@@ -382,6 +379,23 @@ public class MockFactory {
         return component;
     }
 
+    public static VirtualContainer containsAllContainer() {
+        VirtualContainer container = mock(VirtualContainer.class);
+        when(container.contains(any(Component.class))).thenReturn(true);
+        when(container.isVisible()).thenReturn(true);
+        when(container.toString()).thenReturn("contains all: true");
+        return container;
+    }
+
+    public static VirtualContainer containsNothingContainer() {
+        VirtualContainer container = mock(VirtualContainer.class);
+        when(container.contains(any(Component.class))).thenReturn(false);
+        when(container.contains(any(Component.class), any(Component.class))).thenReturn(false);
+        when(container.isVisible()).thenReturn(true);
+        when(container.toString()).thenReturn("contains all: false");
+        return container;
+    }
+
     public static String format(String message) {
         String formatedMessage = message.replace("\n", "");
         formatedMessage = formatedMessage.replace("    ", "");
@@ -393,5 +407,11 @@ public class MockFactory {
     }
 
     private static abstract class VirtualComponent implements SizeSupport, ValiditySupport, Collapsable {
+    }
+
+    private static abstract class VirtualContainer extends Component implements Container {
+        VirtualContainer(Evaluator evaluator, String id) {
+            super(evaluator, id);
+        }
     }
 }
