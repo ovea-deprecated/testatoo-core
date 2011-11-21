@@ -20,7 +20,7 @@ import org.junit.Test;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.fail;
 import static org.testatoo.core.Language.assertThat;
-import static org.testatoo.core.matcher.Displays.displays;
+import static org.testatoo.core.matcher.Matchers.displays;
 import static org.testatoo.core.matcher.mock.MockFactory.*;
 
 public class DisplaysTest {

@@ -70,6 +70,17 @@ public abstract class Matchers {
     }
 
     /**
+     * To test the visibility of a graphic object, using the syntax "displays()".
+     *
+     * @param components who must be visible
+     * @return a new Displays matcher
+     * @see Displays
+     */
+    public static Matcher<Container> displays(Component... components){
+        return Displays.displays(components);
+    }
+
+    /**
      * To test the state visible of a graphic object, using the syntax "visible()".
      *
      * @return a new Visible matcher
