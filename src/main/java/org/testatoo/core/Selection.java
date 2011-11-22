@@ -18,6 +18,7 @@ package org.testatoo.core;
 
 import com.google.common.base.Function;
 import com.google.common.base.Predicate;
+import org.testatoo.core.nature.SizeSupport;
 
 import java.util.Comparator;
 import java.util.NoSuchElementException;
@@ -26,7 +27,7 @@ import java.util.NoSuchElementException;
  * @author dev@testatoo.org
  */
 
-public interface Selection<T> extends Iterable<T> {
+public interface Selection<T> extends Iterable<T>, SizeSupport {
 
     /**
      * Returns the first element in {@code iterable} that satisfies the given
