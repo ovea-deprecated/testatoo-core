@@ -17,6 +17,7 @@
 package org.testatoo.core.component;
 
 import org.testatoo.core.Evaluator;
+import org.testatoo.core.nature.SizeSupport;
 
 /**
  * This is the abstract base class for all type of textFields (ex : passwordField).
