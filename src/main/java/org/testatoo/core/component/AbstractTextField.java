@@ -17,7 +17,7 @@
 package org.testatoo.core.component;
 
 import org.testatoo.core.Evaluator;
-import org.testatoo.core.nature.SizeSupport;
+import org.testatoo.core.nature.TextSupport;
 
 /**
  * This is the abstract base class for all type of textFields (ex : passwordField).
@@ -25,7 +25,7 @@ import org.testatoo.core.nature.SizeSupport;
  *
  * @author dev@testatoo.org
  */
-public abstract class AbstractTextField extends Field {
+public abstract class AbstractTextField extends Field implements TextSupport {
 
     /**
      * Class constructor specifying the evaluator to use and the id of the textField
@@ -44,6 +44,16 @@ public abstract class AbstractTextField extends Field {
      */
     public int maxLength() {
         return evaluator.maxLength(this);
+    }
+
+    /**
+     * To get the text contained in the textfield
+     *
+     * @return the text contained in the textfield
+     */
+    @Override
+    public String text() {
+        return value();
     }
 
     /**

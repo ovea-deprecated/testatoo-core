@@ -290,13 +290,13 @@ public abstract class Matchers {
     }
 
     /**
-     * To test if text are contained in a textfield, using the syntax "containsText("aaaaa")"
+     * To test if text are contained in a textsupport, using the syntax "containsText("aaaaa")"
      *
      * @param text the expected values
      * @return a new ContainsText matcher
      * @see ContainsText
      */
-    public static Matcher<TextField> containsText(String text) {
+    public static Matcher<TextSupport> containsText(String text) {
         return ContainsText.contains(text);
     }
 
@@ -307,7 +307,7 @@ public abstract class Matchers {
      * @return a new ContainsText matcher
      * @see ContainsText
      */
-    public static Matcher<TextField> containsExactlyText(String text) {
+    public static Matcher<TextSupport> containsExactlyText(String text) {
         return ContainsText.containsExaclty(text);
     }
 
