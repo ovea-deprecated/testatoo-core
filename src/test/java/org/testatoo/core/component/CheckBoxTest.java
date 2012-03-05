@@ -23,10 +23,12 @@ import org.testatoo.core.Evaluator;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.not;
 import static org.junit.Assert.fail;
 import static org.mockito.Mockito.*;
 import static org.testatoo.core.ComponentType.CheckBox;
 import static org.testatoo.core.ComponentType.Radio;
+import static org.testatoo.core.matcher.Matchers.checked;
 
 public class CheckBoxTest {
 
@@ -63,11 +65,11 @@ public class CheckBoxTest {
         CheckBox checkBox = new CheckBox(evaluator, id);
 
         when(evaluator.isChecked(checkBox)).thenReturn(false, true, false);
-        assertThat(checkBox.isChecked(), is(false));
+        assertThat(checkBox, is(not(checked())));
         checkBox.check();
-        assertThat(checkBox.isChecked(), is(true));
+        assertThat(checkBox, is(checked()));
         checkBox.unCheck();
-        assertThat(checkBox.isChecked(), is(false));
+        assertThat(checkBox, is(not(checked())));
 
         verify(evaluator, times(3)).isChecked(checkBox);
         verify(evaluator, times(1)).check(checkBox);
