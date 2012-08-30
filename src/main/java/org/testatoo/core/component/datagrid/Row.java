@@ -20,6 +20,7 @@ import org.testatoo.core.ComponentException;
 import org.testatoo.core.Evaluator;
 import org.testatoo.core.Selection;
 import org.testatoo.core.component.Component;
+import org.testatoo.core.nature.Container;
 
 import static org.testatoo.core.ComponentType.Row;
 

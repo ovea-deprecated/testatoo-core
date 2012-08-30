@@ -23,6 +23,7 @@ import org.testatoo.core.component.Component;
 import org.testatoo.core.component.Window;
 import org.testatoo.core.component.datagrid.Cell;
 import org.testatoo.core.component.datagrid.Column;
+import org.testatoo.core.component.datagrid.DataGrid;
 import org.testatoo.core.component.datagrid.Row;
 import org.testatoo.core.input.Keyboard;
 import org.testatoo.core.input.Mouse;
@@ -211,12 +212,44 @@ public abstract class Language {
         window.close();
     }
 
+    /**
+     * Return the first row of a selection of row
+     *
+     * @param rows list of rows
+     * @return first row
+     */
     public static Row first(Selection<Row> rows) {
         return rows.first();
     }
 
+    /**
+     * Return the last row of a selection of row
+     *
+     * @param rows list of rows
+     * @return last row
+     */
     public static Row last(Selection<Row> rows) {
         return rows.last();
+    }
+
+    /**
+     * Return the first row of a dataGrid
+     *
+     * @param dataGrid a dataGrid
+     * @return first row of the dataGrid
+     */
+    public static Row firstRowOf(DataGrid dataGrid) {
+        return dataGrid.rows().first();
+    }
+
+    /**
+     * Return the last row of a dataGrid
+     *
+     * @param dataGrid a dataGrid
+     * @return last row of the dataGrid
+     */
+    public static Row lastRowOf(DataGrid dataGrid) {
+        return dataGrid.rows().last();
     }
 
     /**
@@ -255,14 +288,14 @@ public abstract class Language {
         final long step = frequency.unit.toMillis(frequency.duration);
         Throwable ex = null;
         try {
-        for (long timeout = duration.unit.toMillis(duration.duration); timeout > 0; timeout -= step, Thread.sleep(step)) {
-            try {
-                assertThat(object, matcher);
-                return;
-            } catch (Throwable e) {
-                ex = e;
+            for (long timeout = duration.unit.toMillis(duration.duration); timeout > 0; timeout -= step, Thread.sleep(step)) {
+                try {
+                    assertThat(object, matcher);
+                    return;
+                } catch (Throwable e) {
+                    ex = e;
+                }
             }
-        }
         } catch (InterruptedException iex) {
             throw new RuntimeException("Interrupted exception", iex);
         }
