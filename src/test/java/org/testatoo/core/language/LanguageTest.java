@@ -210,7 +210,7 @@ public class LanguageTest {
     }
 
     @Test
-    public void test_wait_until_with_success() throws InterruptedException {
+    public void test_wait_until_with_success() {
         evaluator = mock(Evaluator.class);
         when(evaluator.existComponent(id)).thenReturn(true);
         when(evaluator.isVisible(any(Component.class))).thenReturn(false, false, false, false, false, false, true);

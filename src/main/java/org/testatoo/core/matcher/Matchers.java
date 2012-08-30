@@ -21,7 +21,6 @@ import org.testatoo.core.Selection;
 import org.testatoo.core.component.AbstractTextField;
 import org.testatoo.core.component.Component;
 import org.testatoo.core.component.ListModel;
-import org.testatoo.core.component.TextField;
 import org.testatoo.core.component.datagrid.*;
 import org.testatoo.core.nature.*;
 
@@ -32,8 +31,7 @@ import org.testatoo.core.nature.*;
  */
 public abstract class Matchers {
 
-    protected Matchers() {
-    }
+    protected Matchers() {}
 
     /**
      * To test the state enabled of a graphic object, using the syntax "enabled()".

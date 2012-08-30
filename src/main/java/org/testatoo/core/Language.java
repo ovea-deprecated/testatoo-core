@@ -217,9 +217,8 @@ public abstract class Language {
      * @param <T>     type of the graphic object
      * @param object  the graphic object
      * @param matcher the matcher to calculate the assertion
-     * @throws InterruptedException exception
      */
-    public static <T> void waitUntil(T object, org.hamcrest.Matcher<T> matcher) throws InterruptedException {
+    public static <T> void waitUntil(T object, org.hamcrest.Matcher<T> matcher) {
         waitUntil(object, matcher, max(1, TimeUnit.SECONDS));
     }
 
@@ -230,9 +229,8 @@ public abstract class Language {
      * @param object   the graphic object
      * @param matcher  the matcher to calculate the assertion
      * @param duration maximum waiting time
-     * @throws InterruptedException exception
      */
-    public static <T> void waitUntil(T object, org.hamcrest.Matcher<T> matcher, Duration duration) throws InterruptedException {
+    public static <T> void waitUntil(T object, org.hamcrest.Matcher<T> matcher, Duration duration) {
         waitUntil(object, matcher, duration, freq(500, TimeUnit.MILLISECONDS));
     }
 
@@ -244,11 +242,11 @@ public abstract class Language {
      * @param matcher   the matcher to calculate the assertion
      * @param duration  maximum waiting time
      * @param frequency frequency of retries
-     * @throws InterruptedException exception
      */
-    public static <T> void waitUntil(T object, org.hamcrest.Matcher<T> matcher, Duration duration, Duration frequency) throws InterruptedException {
+    public static <T> void waitUntil(T object, org.hamcrest.Matcher<T> matcher, Duration duration, Duration frequency) {
         final long step = frequency.unit.toMillis(frequency.duration);
         Throwable ex = null;
+        try {
         for (long timeout = duration.unit.toMillis(duration.duration); timeout > 0; timeout -= step, Thread.sleep(step)) {
             try {
                 assertThat(object, matcher);
@@ -256,6 +254,9 @@ public abstract class Language {
             } catch (Throwable e) {
                 ex = e;
             }
+        }
+        } catch (InterruptedException iex) {
+            throw new RuntimeException("Interrupted exception", iex);
         }
         throw new RuntimeException("Unable to reach the condition in " + duration.duration + " " + duration.unit, ex);
     }
