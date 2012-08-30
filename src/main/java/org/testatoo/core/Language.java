@@ -211,6 +211,14 @@ public abstract class Language {
         window.close();
     }
 
+    public static Row first(Selection<Row> rows) {
+        return rows.first();
+    }
+
+    public static Row last(Selection<Row> rows) {
+        return rows.last();
+    }
+
     /**
      * Waiting until an assertion is reached. The timeout is 1 second
      *

@@ -21,14 +21,18 @@ import org.junit.Before;
 import org.junit.Test;
 import org.testatoo.core.Evaluator;
 import org.testatoo.core.EvaluatorHolder;
+import org.testatoo.core.ListSelection;
+import org.testatoo.core.Selection;
 import org.testatoo.core.component.*;
+import org.testatoo.core.component.datagrid.DataGrid;
+import org.testatoo.core.component.datagrid.Row;
 import org.testatoo.core.input.*;
 
 import java.util.concurrent.TimeUnit;
 
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.not;
 import static org.junit.Assert.fail;
-import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.*;
 import static org.testatoo.core.ComponentType.*;
 import static org.testatoo.core.Language.*;
@@ -207,6 +211,49 @@ public class LanguageTest {
         verify(evaluator, times(1)).release(KeyModifier.CONTROL);
         verify(evaluator, times(1)).press(Key.F6);
         verify(evaluator, times(1)).release();
+    }
+
+    @Test
+    public void test_dataGrid_usage() {
+        when(evaluator.componentType(id)).thenReturn(DataGrid);
+
+        final DataGrid dataGrid = new DataGrid(evaluator, id);
+
+        when(evaluator.existComponent("1")).thenReturn(true);
+        when(evaluator.componentType("1")).thenReturn(Row);
+
+        when(evaluator.existComponent("2")).thenReturn(true);
+        when(evaluator.componentType("2")).thenReturn(Row);
+
+        when(evaluator.existComponent("3")).thenReturn(true);
+        when(evaluator.componentType("3")).thenReturn(Row);
+
+        when(evaluator.existComponent("4")).thenReturn(true);
+        when(evaluator.componentType("4")).thenReturn(Row);
+
+        when(evaluator.existComponent("5")).thenReturn(true);
+        when(evaluator.componentType("5")).thenReturn(Row);
+
+        when(evaluator.existComponent("6")).thenReturn(true);
+        when(evaluator.componentType("6")).thenReturn(Row);
+
+        when(evaluator.existComponent("7")).thenReturn(true);
+        when(evaluator.componentType("7")).thenReturn(Row);
+
+        Row row_1 = new Row(evaluator, "1");
+        Row row_2 = new Row(evaluator, "2");
+        Row row_3 = new Row(evaluator, "3");
+        Row row_4 = new Row(evaluator, "4");
+        Row row_5 = new Row(evaluator, "5");
+        Row row_6 = new Row(evaluator, "6");
+        Row row_7 = new Row(evaluator, "7");
+        Selection<Row> rows = ListSelection.of(row_1, row_2, row_3, row_4, row_5, row_6, row_7);
+
+        when(evaluator.rows(dataGrid)).thenReturn(rows);
+        when(evaluator.cells(any(Row.class))).thenReturn(ListSelection.empty());
+
+        assertThat(first(dataGrid.rows()).id(), is(dataGrid.row(1).id()));
+        assertThat(last(dataGrid.rows()).id(), is(dataGrid.row(dataGrid.rows().size()).id()));
     }
 
     @Test
