@@ -21,7 +21,6 @@ import com.google.common.base.Function;
 /**
  * @author dev@testatoo.org
  */
-
 public abstract class Selector {
 
     public static <I, O> Function<I, O> to(final Class<? extends O> clazz) {

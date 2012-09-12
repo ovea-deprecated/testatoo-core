@@ -23,7 +23,6 @@ import org.hamcrest.TypeSafeMatcher;
 import org.testatoo.core.component.Component;
 import org.testatoo.core.nature.Collapsable;
 
-
 /**
  * This class is a matcher (written based on hamcrest possibilites) to test the state collapsed of a graphic object.
  *

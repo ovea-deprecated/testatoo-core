@@ -24,6 +24,9 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.mockito.Mockito.*;
 
+/**
+ * @author dev@testatoo.org
+ */
 public class FieldTest {
 
     private Evaluator evaluator;

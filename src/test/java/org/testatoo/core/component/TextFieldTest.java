@@ -28,6 +28,9 @@ import static org.mockito.Mockito.*;
 import static org.testatoo.core.ComponentType.Radio;
 import static org.testatoo.core.ComponentType.TextField;
 
+/**
+ * @author dev@testatoo.org
+ */
 public class TextFieldTest {
 
     private Evaluator evaluator;

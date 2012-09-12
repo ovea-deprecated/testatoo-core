@@ -18,6 +18,9 @@ package org.testatoo.core.input;
 
 import org.testatoo.core.EvaluatorHolder;
 
+/**
+ * @author dev@testatoo.org
+ */
 public final class Keyboard {
 
     public static void type(String text) {

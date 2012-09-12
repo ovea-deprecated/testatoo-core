@@ -26,6 +26,9 @@ import org.testatoo.core.component.Component;
 import static org.mockito.Mockito.*;
 import static org.testatoo.core.ComponentType.Button;
 
+/**
+ * @author dev@testatoo.org
+ */
 public class MouseTest {
 
     private Evaluator evaluator;

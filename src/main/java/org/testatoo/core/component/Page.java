@@ -25,7 +25,6 @@ import org.testatoo.core.nature.TitleSupport;
  *
  * @author dev@testatoo.org
  */
-
 public final class Page extends Component implements Container, TitleSupport {
 
     private Evaluator evaluator;

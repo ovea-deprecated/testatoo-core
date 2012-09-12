@@ -31,6 +31,9 @@ import static org.testatoo.core.Language.assertThat;
 import static org.testatoo.core.matcher.ContainsComponent.contains;
 import static org.testatoo.core.matcher.mock.MockFactory.format;
 
+/**
+ * @author David Avenante
+ */
 public class ContainsComponentTest {
 
     private Panel panel;

@@ -30,6 +30,9 @@ import static org.testatoo.core.ComponentType.CheckBox;
 import static org.testatoo.core.ComponentType.Radio;
 import static org.testatoo.core.matcher.Matchers.checked;
 
+/**
+ * @author dev@testatoo.org
+ */
 public class CheckBoxTest {
 
     private Evaluator evaluator;

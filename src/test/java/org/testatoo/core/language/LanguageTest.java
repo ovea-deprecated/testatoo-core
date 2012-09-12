@@ -38,6 +38,9 @@ import static org.testatoo.core.ComponentType.*;
 import static org.testatoo.core.Language.*;
 import static org.testatoo.core.matcher.Matchers.*;
 
+/**
+ * @author dev@testatoo.org
+ */
 public class LanguageTest {
 
     private Evaluator evaluator;

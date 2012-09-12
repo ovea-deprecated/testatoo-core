@@ -23,6 +23,9 @@ import org.testatoo.core.nature.Container;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author dev@testatoo.org
+ */
 public class Displays extends TypeSafeMatcher<Container> {
 
     private Component[] components;

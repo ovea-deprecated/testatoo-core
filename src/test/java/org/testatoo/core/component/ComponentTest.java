@@ -29,6 +29,9 @@ import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.*;
 import static org.testatoo.core.ComponentType.Window;
 
+/**
+ * @author dev@testatoo.org
+ */
 public class ComponentTest {
 
     private Evaluator evaluator;

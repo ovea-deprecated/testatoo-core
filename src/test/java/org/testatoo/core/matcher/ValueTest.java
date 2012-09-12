@@ -25,6 +25,9 @@ import static org.testatoo.core.matcher.Matchers.empty;
 import static org.testatoo.core.matcher.Matchers.*;
 import static org.testatoo.core.matcher.mock.MockFactory.*;
 
+/**
+ * @author dev@testatoo.org
+ */
 public class ValueTest {
 
     @Test

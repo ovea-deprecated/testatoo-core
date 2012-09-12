@@ -33,6 +33,9 @@ import static org.testatoo.core.Evaluator.DEFAULT_NAME;
 import static org.testatoo.core.input.Key.ENTER;
 import static org.testatoo.core.input.KeyModifier.*;
 
+/**
+ * @author dev@testatoo.org
+ */
 public class KeyboardTest {
 
     private Evaluator evaluator;

@@ -22,7 +22,6 @@ import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 import org.testatoo.core.nature.LabelSupport;
 
-
 /**
  * This class is a matcher (written based on hamcrest possibilites) to test the label of a graphic object.
  *

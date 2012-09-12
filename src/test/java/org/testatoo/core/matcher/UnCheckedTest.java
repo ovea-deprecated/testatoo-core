@@ -24,6 +24,9 @@ import static org.junit.Assert.fail;
 import static org.testatoo.core.matcher.Matchers.unChecked;
 import static org.testatoo.core.matcher.mock.MockFactory.*;
 
+/**
+ * @author dev@testatoo.org
+ */
 public class UnCheckedTest {
 
     @Test

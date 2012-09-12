@@ -19,6 +19,9 @@ package org.testatoo.core.input;
 import org.testatoo.core.EvaluatorHolder;
 import org.testatoo.core.component.Component;
 
+/**
+ * @author dev@testatoo.org
+ */
 public abstract class Mouse {
 
     /**

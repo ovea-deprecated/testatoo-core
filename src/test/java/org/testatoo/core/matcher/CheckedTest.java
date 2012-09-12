@@ -24,6 +24,9 @@ import static org.junit.Assert.fail;
 import static org.testatoo.core.matcher.Matchers.checked;
 import static org.testatoo.core.matcher.mock.MockFactory.*;
 
+/**
+ * @author dev@testatoo.org
+ */
 public class CheckedTest {
 
     @Test

@@ -23,6 +23,9 @@ import static org.testatoo.core.Language.assertThat;
 import static org.testatoo.core.matcher.Matchers.displays;
 import static org.testatoo.core.matcher.mock.MockFactory.*;
 
+/**
+ * @author dev@testatoo.org
+ */
 public class DisplaysTest {
 
     @Test

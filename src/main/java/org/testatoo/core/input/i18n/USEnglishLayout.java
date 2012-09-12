@@ -21,6 +21,9 @@ import org.testatoo.core.input.KeyboardLayout;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @author dev@testatoo.org
+ */
 public class USEnglishLayout implements KeyboardLayout {
 
     private Map<Character, Integer> characterMap = new HashMap<Character, Integer>();

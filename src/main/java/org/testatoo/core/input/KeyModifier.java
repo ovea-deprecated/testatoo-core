@@ -16,6 +16,9 @@
 
 package org.testatoo.core.input;
 
+/**
+ * @author dev@testatoo.org
+ */
 public enum KeyModifier {
 
     SHIFT(16),

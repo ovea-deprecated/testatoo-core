@@ -28,6 +28,9 @@ import static org.mockito.Mockito.*;
 import static org.testatoo.core.ComponentType.Radio;
 import static org.testatoo.core.ComponentType.Window;
 
+/**
+ * @author dev@testatoo.org
+ */
 public class WindowTest {
 
     private Evaluator evaluator;

@@ -29,6 +29,9 @@ import org.testatoo.core.nature.*;
 import static org.mockito.Mockito.*;
 import static org.testatoo.core.ComponentType.*;
 
+/**
+ * @author dev@testatoo.org
+ */
 public class MockFactory {
 
     private static String id = "myId";

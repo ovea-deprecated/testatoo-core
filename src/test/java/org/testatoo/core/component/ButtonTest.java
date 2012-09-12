@@ -28,6 +28,9 @@ import static org.mockito.Mockito.*;
 import static org.testatoo.core.ComponentType.Button;
 import static org.testatoo.core.ComponentType.Radio;
 
+/**
+ * @author dev@testatoo.org
+ */
 public class ButtonTest {
 
     private Evaluator evaluator;

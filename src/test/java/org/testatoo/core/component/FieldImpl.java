@@ -18,6 +18,9 @@ package org.testatoo.core.component;
 
 import org.testatoo.core.Evaluator;
 
+/**
+ * @author dev@testatoo.org
+ */
 public class FieldImpl extends Field {
 
     public FieldImpl(Evaluator evaluator, String id) {

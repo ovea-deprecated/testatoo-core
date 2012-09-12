@@ -16,6 +16,9 @@
 
 package org.testatoo.core;
 
+/**
+ * @author dev@testatoo.org
+ */
 public interface Current<T> {
     T get();
 }

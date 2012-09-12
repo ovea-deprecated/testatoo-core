@@ -18,6 +18,9 @@ package org.testatoo.core;
 
 import java.util.concurrent.TimeUnit;
 
+/**
+ * @author dev@testatoo.org
+ */
 public final class Duration {
 
     public long duration;

@@ -22,7 +22,6 @@ import org.testatoo.core.nature.LabelSupport;
 
 import static org.testatoo.core.ComponentType.Radio;
 
-
 /**
  * This class allows the testing of Radio button properties.
  *

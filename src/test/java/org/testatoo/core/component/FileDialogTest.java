@@ -28,6 +28,9 @@ import static org.mockito.Mockito.*;
 import static org.testatoo.core.ComponentType.FileDialog;
 import static org.testatoo.core.ComponentType.Radio;
 
+/**
+ * @author dev@testatoo.org
+ */
 public class FileDialogTest {
 
     private Evaluator evaluator;

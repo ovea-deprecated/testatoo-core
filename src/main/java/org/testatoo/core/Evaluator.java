@@ -50,7 +50,6 @@ import org.testatoo.core.nature.ValueSupport;
  *
  * @author dev@testatoo.org
  */
-
 public interface Evaluator<T> {
 
     String DEFAULT_NAME = Evaluator.class.getName() + ".DEFAULT";

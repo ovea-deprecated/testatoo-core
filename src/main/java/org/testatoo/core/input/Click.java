@@ -16,6 +16,9 @@
 
 package org.testatoo.core.input;
 
+/**
+ * @author dev@testatoo.org
+ */
 public enum Click {
     left, right, center
 }

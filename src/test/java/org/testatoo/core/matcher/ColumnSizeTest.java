@@ -25,6 +25,9 @@ import static org.testatoo.core.Language.columns;
 import static org.testatoo.core.matcher.Matchers.has;
 import static org.testatoo.core.matcher.mock.MockFactory.*;
 
+/**
+ * @author David Avenante
+ */
 public class ColumnSizeTest {
 
     @Test

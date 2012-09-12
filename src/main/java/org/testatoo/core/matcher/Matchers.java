@@ -89,6 +89,16 @@ public abstract class Matchers {
     }
 
     /**
+     * To test the state hidden of a graphic object, using the syntax "hidden()".
+     *
+     * @return a new Hidden matcher
+     * @see Hidden
+     */
+    public static Matcher<Component> hidden() {
+        return Hidden.hidden();
+    }
+
+    /**
      * To test the state checked of a checkable object, using the syntax "checked()".
      *
      * @return a new Checked matcher

@@ -33,7 +33,6 @@ import java.util.NoSuchElementException;
 /**
  * @author dev@testatoo.org
  */
-
 public final class ListSelection<T> implements Selection<T> {
 
     @SuppressWarnings({"unchecked"})

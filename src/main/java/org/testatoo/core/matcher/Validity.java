@@ -26,7 +26,6 @@ import org.testatoo.core.nature.ValiditySupport;
  *
  * @author dev@testatoo.org
  */
-
 public class Validity extends TypeSafeMatcher<ValiditySupport> {
 
     /**

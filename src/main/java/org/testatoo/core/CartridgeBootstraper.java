@@ -18,6 +18,9 @@ package org.testatoo.core;
 
 import java.util.Map;
 
+/**
+ * @author dev@testatoo.org
+ */
 public interface CartridgeBootstraper {
     Evaluator buildEvaluator(Map<String, ?> params);
 }

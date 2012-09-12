@@ -30,6 +30,9 @@ import static org.mockito.Mockito.*;
 import static org.testatoo.core.ComponentType.DialogBox;
 import static org.testatoo.core.ComponentType.Radio;
 
+/**
+ * @author dev@testatoo.org
+ */
 public class DialogBoxTest {
 
     private Evaluator evaluator;

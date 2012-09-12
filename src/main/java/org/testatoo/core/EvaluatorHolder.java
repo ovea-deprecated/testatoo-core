@@ -24,6 +24,9 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
 
+/**
+ * @author dev@testatoo.org
+ */
 public final class EvaluatorHolder {
 
     private static ThreadLocal<ExecutorService> EXECUTOR = new ThreadLocal<ExecutorService>();

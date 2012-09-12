@@ -60,6 +60,15 @@ public abstract class Language {
     }
 
     /**
+     * Language placeholder to check an assertion
+     *
+     * @param assertion  the assertion object
+     */
+    public static Boolean assertThat(Boolean assertion) {
+        return assertion;
+    }
+
+    /**
      * To avoid repeating the "assertThat" when calculating another assertion on the same object
      *
      * @param <T>     type of the graphic object

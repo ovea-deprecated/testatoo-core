@@ -33,6 +33,9 @@ import static org.testatoo.core.ComponentType.DataGrid;
 import static org.testatoo.core.ComponentType.*;
 import static org.testatoo.core.ComponentType.Row;
 
+/**
+ * @author dev@testatoo.org
+ */
 public class DataGridTest {
 
     private Evaluator evaluator;

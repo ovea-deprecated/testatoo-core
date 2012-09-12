@@ -26,7 +26,6 @@ import java.util.NoSuchElementException;
 /**
  * @author dev@testatoo.org
  */
-
 public interface Selection<T> extends Iterable<T>, SizeSupport {
 
     /**

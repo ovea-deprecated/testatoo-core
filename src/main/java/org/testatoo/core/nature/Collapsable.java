@@ -21,7 +21,6 @@ package org.testatoo.core.nature;
  *
  * @author dev@testatoo.org
  */
-
 public interface Collapsable {
 
     /**
