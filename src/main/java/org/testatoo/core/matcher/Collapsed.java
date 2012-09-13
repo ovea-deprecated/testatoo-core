@@ -20,25 +20,24 @@ import org.hamcrest.Description;
 import org.hamcrest.Factory;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
-import org.testatoo.core.component.Component;
-import org.testatoo.core.nature.Collapsable;
+import org.testatoo.core.nature.Collapsible;
 
 /**
  * This class is a matcher (written based on hamcrest possibilites) to test the state collapsed of a graphic object.
  *
  * @author dev@testatoo.org
  */
-public final class Collapsed extends TypeSafeMatcher<Collapsable> {
+public final class Collapsed extends TypeSafeMatcher<Collapsible> {
 
     /**
      * Uses the matcher Enabled to know if a given component is enabled using the syntax "is(collapsed())" or "is(not(collapsed())"
      *
-     * @param collapsable the graphic object
+     * @param collapsible the graphic object
      * @return True if the component is collapsed
      */
     @Override
-    public boolean matchesSafely(Collapsable collapsable) {
-        return collapsable.isCollapsed();
+    public boolean matchesSafely(Collapsible collapsible) {
+        return collapsible.isCollapsed();
     }
 
     /**
@@ -56,7 +55,7 @@ public final class Collapsed extends TypeSafeMatcher<Collapsable> {
      * @return a new Collapsed matcher
      */
     @Factory
-    public static Matcher<Collapsable> collapsed() {
+    public static Matcher<Collapsible> collapsed() {
         return new Collapsed();
     }
 }

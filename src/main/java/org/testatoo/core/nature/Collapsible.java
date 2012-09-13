@@ -21,7 +21,7 @@ package org.testatoo.core.nature;
  *
  * @author dev@testatoo.org
  */
-public interface Collapsable {
+public interface Collapsible {
 
     /**
      * To know if the collapsable object is collapsed

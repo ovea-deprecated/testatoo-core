@@ -31,7 +31,8 @@ import org.testatoo.core.nature.*;
  */
 public abstract class Matchers {
 
-    protected Matchers() {}
+    protected Matchers() {
+    }
 
     /**
      * To test the state enabled of a graphic object, using the syntax "enabled()".
@@ -53,7 +54,13 @@ public abstract class Matchers {
         return Validity.valid();
     }
 
-    public static Matcher<Collapsable> collapsed() {
+    /**
+     * To test the collapsed state of a graphic object, using the syntax "collapsed()".
+     *
+     * @return a new Collapsed matcher
+     * @see Collapsed
+     */
+    public static Matcher<Collapsible> collapsed() {
         return Collapsed.collapsed();
     }
 
@@ -74,7 +81,7 @@ public abstract class Matchers {
      * @return a new Displays matcher
      * @see Displays
      */
-    public static Matcher<Container> displays(Component... components){
+    public static Matcher<Container> displays(Component... components) {
         return Displays.displays(components);
     }
 

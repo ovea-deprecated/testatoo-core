@@ -409,7 +409,7 @@ public class MockFactory {
         return ListSelection.of("France", "Canada", "Germany", "Italy", "Spain");
     }
 
-    private static abstract class VirtualComponent implements SizeSupport, ValiditySupport, Collapsable {
+    private static abstract class VirtualComponent implements SizeSupport, ValiditySupport, Collapsible {
     }
 
     private static abstract class VirtualContainer extends Component implements Container {
