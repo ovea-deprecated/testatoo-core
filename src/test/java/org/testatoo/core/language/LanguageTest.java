@@ -289,4 +289,16 @@ public class LanguageTest {
             assertThat(e.getMessage(), is("Unable to reach the condition in 1 SECONDS"));
         }
     }
+
+    @Test
+    public void test_sugar_assertThat() {
+        assertThat(true);
+
+        try {
+            assertThat(false);
+            fail();
+        } catch (AssertionError e) {
+            assertThat(e.getMessage(), is("Expected true but is false"));
+        }
+    }
 }

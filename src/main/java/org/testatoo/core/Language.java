@@ -64,7 +64,10 @@ public abstract class Language {
      *
      * @param assertion  the assertion object
      */
-    public static Boolean assertThat(Boolean assertion) {
+    public static boolean assertThat(boolean assertion) {
+        if (!assertion) {
+            throw new AssertionError("Expected true but is false");
+        }
         return assertion;
     }
 

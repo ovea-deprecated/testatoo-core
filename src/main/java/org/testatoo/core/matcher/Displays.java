@@ -39,7 +39,6 @@ public class Displays extends TypeSafeMatcher<Container> {
 
     @Override
     protected boolean matchesSafely(Container container) {
-
         for (Component component : components) {
             if (container.contains(component)) {
                 if (!component.isVisible())
@@ -47,11 +46,7 @@ public class Displays extends TypeSafeMatcher<Container> {
             } else
                 notExistComponents.add(component);
         }
-
-        if (notExistComponents.isEmpty() && notVisibleComponents.isEmpty())
-            return true;
-        else
-            return false;
+        return notExistComponents.isEmpty() && notVisibleComponents.isEmpty();
     }
 
     @Override
