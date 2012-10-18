@@ -52,9 +52,7 @@ public abstract class ListModel extends Component {
      * @param value the value we want to be selected in the list
      */
     public void select(String value) {
-        if (values().contains(value)) {
-            evaluator.select(value, this);
-        }
+        evaluator.select(value, this);
     }
 
     /**
@@ -63,9 +61,7 @@ public abstract class ListModel extends Component {
      * @param value the value we want to be unselected in the list
      */
     protected void unSelect(String value) {
-        if (values().contains(value)) {
-            evaluator.unselect(value, this);
-        }
+        evaluator.unselect(value, this);
     }
 
     /**
@@ -82,7 +78,6 @@ public abstract class ListModel extends Component {
      */
     @Override
     public String toString() {
-        return super.toString() + ", values:" + values()
-                + ", selectedValues:" + listSelectedValues();
+        return super.toString() + ", values:" + values() + ", selectedValues:" + listSelectedValues();
     }
 }
