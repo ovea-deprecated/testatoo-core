@@ -76,7 +76,7 @@ public class ComponentTest {
     }
 
     @Test
-    public void component_enability() {
+    public void component_is_enabled() {
         when(evaluator.isEnabled(any(Component.class))).thenReturn(true, true, false, false);
 
         Component enabledComponent = new Component(evaluator, id);
@@ -119,7 +119,7 @@ public class ComponentTest {
     }
 
     @Test
-    public void test_component_constuctor() {
+    public void test_component_constructor() {
         //  An evaluator must be defined
         try {
             new Component(null, null);
