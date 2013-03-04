@@ -272,7 +272,7 @@ public abstract class Language {
      * @param matcher the matcher to calculate the assertion
      */
     public static <T> void waitUntil(T object, org.hamcrest.Matcher<T> matcher) {
-        waitUntil(object, matcher, max(1, TimeUnit.SECONDS));
+        waitUntil(object, matcher, max(5, TimeUnit.SECONDS));
     }
 
     /**
