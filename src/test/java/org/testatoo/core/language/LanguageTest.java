@@ -286,7 +286,7 @@ public class LanguageTest {
             waitUntil(component, is(visible()));
             fail();
         } catch (Exception e) {
-            assertThat(e.getMessage(), is("Unable to reach the condition in 1 SECONDS"));
+            assertThat(e.getMessage(), is("Unable to reach the condition in 5 SECONDS"));
         }
     }
 
